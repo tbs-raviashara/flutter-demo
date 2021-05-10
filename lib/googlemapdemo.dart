@@ -24,7 +24,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Marker Demo'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.red[400],
         centerTitle: true,
       ),
       body: Container(

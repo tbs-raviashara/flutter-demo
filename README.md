@@ -1,18 +1,18 @@
 # Flutter Demos
 
-- [List view with pull to refresh]()
-- [Lite rolling]()
-- [Group list]()
-- [Slidable list]()
-- [Rating]()
-- [Story view]()
-- [Feature discovery]()
-- [Google login]()
-- [Pass data between pages]()
-- [Device info]()
-- [Carousel slider]()
-- [Launch url]()
-- [Google map]()
+- List view with pull to refresh
+- Lite rolling
+- Group list
+- Slidable list
+- Rating
+- Story view
+- Feature discovery
+- Google login
+- Pass data between pages
+- Device information
+- Carousel slider
+- Launch url
+- Google map
 
 ## Install
 

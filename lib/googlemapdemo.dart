@@ -36,6 +36,9 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
             zoom: 15.0,
           ),
           myLocationEnabled: true,
+          zoomGesturesEnabled: true,
+          zoomControlsEnabled: true,
+          myLocationButtonEnabled: true,
         ),
       ),
     );

@@ -7,6 +7,7 @@ import 'package:demo/groupedlist.dart';
 import 'package:demo/home.dart';
 import 'package:demo/listview.dart';
 import 'package:demo/literolling.dart';
+import 'package:demo/newsApp.dart';
 import 'package:demo/passdata.dart';
 import 'package:demo/rating.dart';
 import 'package:demo/second.dart';
@@ -28,5 +29,6 @@ void main() {
     '/device-info': (context) => DeviceInfo(),
     '/carouser-list': (context) => CarouserListDemo(),
     '/google-map': (context) => GoogleMapScreen(),
+    '/news': (context) => NewsApp(),
   }));
 }

@@ -101,6 +101,12 @@ class Home extends StatelessWidget {
               'Google Map ',
             ),
           ),
+          ElevatedButton(
+            onPressed: () => {Navigator.pushNamed(context, '/news')},
+            child: new Text(
+              'News App',
+            ),
+          ),
         ]))));
   }
 

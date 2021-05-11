@@ -26,8 +26,8 @@ class GroupList extends StatelessWidget {
         groupComparator: (value1, value2) => value2.compareTo(value1),
         itemComparator: (item1, item2) =>
             item1['UserFullName'].compareTo(item2['UserFullName']),
-        order: GroupedListOrder.DESC,
-        // useStickyGroupSeparators: true,
+        order: GroupedListOrder.ASC,
+        useStickyGroupSeparators: true,
         groupSeparatorBuilder: (String value) => Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(

@@ -42,8 +42,7 @@ Widget customListTile(Article article, BuildContext context) {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: NetworkImage(
-                            "https://source.unsplash.com/weekly?coding"),
+                        image: AssetImage('assets/images/placeholder.jpg'),
                         fit: BoxFit.cover),
                     borderRadius: BorderRadius.circular(12.0),
                   ),

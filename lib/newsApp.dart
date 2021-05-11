@@ -36,7 +36,10 @@ class _NewsAppState extends State<NewsApp> {
                       customListTile(articles[index], context));
             }
             return Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                backgroundColor: Colors.white,
+                valueColor:AlwaysStoppedAnimation(Colors.red[400]),
+              ),
             );
           },
         ));

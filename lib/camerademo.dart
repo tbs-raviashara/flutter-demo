@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -16,28 +17,21 @@ class CameraDemo extends StatefulWidget {
 class _CameraDemoState extends State<CameraDemo> {
   File _image;
   final picker = ImagePicker();
-  Future getImageFromCamera() async {
-    final pickedFile =
-        await picker.getImage(source: ImageSource.camera, imageQuality: 100);
+  /*
+  * val = camera || gallery
+  */
+  Future getImage(String val) async {
+    final pickedFile = await picker.getImage(
+        source: val == 'camera' ? ImageSource.camera : ImageSource.gallery,
+        imageQuality: 100);
 
     setState(() {
       if (pickedFile != null) {
-        _image = File(pickedFile.path);
-        print(_image);
-      } else {
-        print('No image selected.');
-      }
-    });
-  }
+        _image = new File(pickedFile.path);
 
-  Future getImageFromGallery() async {
-    final pickedFile =
-        await picker.getImage(source: ImageSource.gallery, imageQuality: 100);
-
-    setState(() {
-      if (pickedFile != null) {
-        _image = File(pickedFile.path);
-        print(_image);
+        List<int> imageBytes = _image.readAsBytesSync();
+        String base64Image = base64.encode(imageBytes);
+        print(base64Image);
       } else {
         print('No image selected.');
       }
@@ -46,8 +40,6 @@ class _CameraDemoState extends State<CameraDemo> {
 
   @override
   Widget build(BuildContext context) {
-    //display image selected from gallery
-
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("Upload Image"),
@@ -68,7 +60,7 @@ class _CameraDemoState extends State<CameraDemo> {
                       'Gallery',
                       style: TextStyle(color: Colors.white, fontSize: 15),
                     ),
-                    onPressed: getImageFromGallery),
+                    onPressed: () => {getImage('gallery')}),
                 MaterialButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0)),
@@ -78,7 +70,7 @@ class _CameraDemoState extends State<CameraDemo> {
                       'Photo',
                       style: TextStyle(color: Colors.white, fontSize: 15),
                     ),
-                    onPressed: getImageFromGallery),
+                    onPressed: () => {getImage('camera')}),
                 SizedBox(
                   height: 200.0,
                   width: 300.0,

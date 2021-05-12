@@ -1,3 +1,4 @@
+import 'package:demo/camerademo.dart';
 import 'package:demo/carousellist.dart';
 import 'package:demo/deviceinfo.dart';
 import 'package:demo/featurediscoverydemo.dart';
@@ -30,5 +31,6 @@ void main() {
     '/carouser-list': (context) => CarouserListDemo(),
     '/google-map': (context) => GoogleMapScreen(),
     '/news': (context) => NewsApp(),
+    '/camera': (context) => CameraDemo(),
   }));
 }

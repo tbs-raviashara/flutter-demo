@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:feature_discovery/feature_discovery.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 
 class FeatureDiscoveryDemo extends StatelessWidget {
   @override
@@ -22,7 +22,7 @@ class FeatureDiscoveryDemoApp extends StatefulWidget {
 }
 
 class _FeatureDiscoveryDemoAppState extends State<FeatureDiscoveryDemoApp> {
-  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  // Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   @override
   void initState() {
     // _prefs.then((value) => {

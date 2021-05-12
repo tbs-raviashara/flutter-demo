@@ -107,6 +107,12 @@ class Home extends StatelessWidget {
               'News App',
             ),
           ),
+          ElevatedButton(
+            onPressed: () => {Navigator.pushNamed(context, '/camera')},
+            child: new Text(
+              'Upload Image',
+            ),
+          ),
         ]))));
   }
 

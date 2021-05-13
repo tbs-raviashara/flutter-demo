@@ -24,8 +24,8 @@ void main() {
       systemNavigationBarColor:
           SystemUiOverlayStyle.dark.systemNavigationBarColor,
       statusBarColor: Colors.red, // status bar color
-      statusBarBrightness: Brightness.dark, //status bar brigtness
-      statusBarIconBrightness: Brightness.dark, //status barIcon Brightness
+      statusBarBrightness: Brightness.light, //status bar brigtness
+      statusBarIconBrightness: Brightness.light, //status barIcon Brightness
     ),
   );
   runApp(MyApp());

@@ -3,6 +3,7 @@ import 'package:connectivity/connectivity.dart';
 import 'package:demo/constants/constant.dart';
 import 'package:demo/model/connectivity_status.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class ConnectivityService {
   final GlobalKey<NavigatorState> navigatorKey =
@@ -13,15 +14,11 @@ class ConnectivityService {
     // Subscribe to the connectivity Chanaged Steam
     Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
       // Use Connectivity() here to gather more info if you need t
-
-      print("Connection Changed..... $result");
-      if (result == ConnectivityResult.none) {
-        isConnected = false;
-        // showToast("You are offline",Toast.LENGTH_LONG, ToastGravity.BOTTOM, Color(0xFF1279ba), Colors.white, 16.0);
-      } else {
-        isConnected = true;
-        // showToast("You are online",Toast.LENGTH_LONG, ToastGravity.BOTTOM, Color(0xFF1279ba), Colors.white, 16.0);
-      }
+      isConnected = result == ConnectivityResult.none ? false : true;
+      String message =
+          isConnected == true ? "You are online" : "You are offline";
+      showToast(
+          message, 'LENGTH_LONG', 'TOP', Colors.black, Colors.white, 16.0);
       // connectionStatusController.add(_getStatusFromResult(result));
     });
   }

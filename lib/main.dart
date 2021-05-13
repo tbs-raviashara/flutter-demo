@@ -13,26 +13,46 @@ import 'package:demo/newsApp.dart';
 import 'package:demo/passdata.dart';
 import 'package:demo/rating.dart';
 import 'package:demo/second.dart';
+import 'package:demo/servicrs/checknetwork_service.dart';
 import 'package:demo/storyview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(MaterialApp(initialRoute: '/', routes: {
-    '/': (context) => Home(),
-    '/second': (context) => Second(),
-    '/story': (context) => Story(),
-    '/lite-roling': (context) => LiteRolling(),
-    '/rating': (context) => Rating(),
-    '/feature': (context) => FeatureDiscoveryDemo(),
-    '/list': (context) => List(),
-    '/group-list': (context) => GroupList(),
-    '/google-login': (context) => GLogin(),
-    '/pass-data': (context) => PassData(),
-    '/device-info': (context) => DeviceInfo(),
-    '/carouser-list': (context) => CarouserListDemo(),
-    '/google-map': (context) => GoogleMapScreen(),
-    '/news': (context) => NewsApp(),
-    '/camera': (context) => CameraDemo(),
-    '/dialog': (context) => DialogDemo(),
-  }));
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      systemNavigationBarColor:
+          SystemUiOverlayStyle.dark.systemNavigationBarColor,
+      statusBarColor: Colors.red, // status bar color
+      statusBarBrightness: Brightness.dark, //status bar brigtness
+      statusBarIconBrightness: Brightness.dark, //status barIcon Brightness
+    ),
+  );
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return (MaterialApp(
+        home: Home(),
+        navigatorKey: ConnectivityService().navigatorKey,
+        routes: {
+          '/second': (context) => Second(),
+          '/story': (context) => Story(),
+          '/lite-roling': (context) => LiteRolling(),
+          '/rating': (context) => Rating(),
+          '/feature': (context) => FeatureDiscoveryDemo(),
+          '/list': (context) => List(),
+          '/group-list': (context) => GroupList(),
+          '/google-login': (context) => GLogin(),
+          '/pass-data': (context) => PassData(),
+          '/device-info': (context) => DeviceInfo(),
+          '/carouser-list': (context) => CarouserListDemo(),
+          '/google-map': (context) => GoogleMapScreen(),
+          '/news': (context) => NewsApp(),
+          '/camera': (context) => CameraDemo(),
+          '/dialog': (context) => DialogDemo(),
+        }));
+  }
 }

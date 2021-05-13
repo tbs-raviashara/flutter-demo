@@ -1,4 +1,5 @@
 import 'package:demo/components/customListTile.dart';
+import 'package:demo/constants/constant.dart';
 import 'package:demo/model/article_model.dart';
 import 'package:demo/servicrs/api_service.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class NewsApp extends StatefulWidget {
 
 class _NewsAppState extends State<NewsApp> {
   ApiService client = ApiService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,12 +38,14 @@ class _NewsAppState extends State<NewsApp> {
                   itemBuilder: (context, index) =>
                       customListTile(articles[index], context));
             }
-            return Center(
-              child: CircularProgressIndicator(
-                backgroundColor: Colors.white,
-                valueColor: AlwaysStoppedAnimation(Colors.red[400]),
-              ),
-            );
+            return isConnected == true
+                ? Center(
+                    child: CircularProgressIndicator(
+                      backgroundColor: Colors.white,
+                      valueColor: AlwaysStoppedAnimation(Colors.red[400]),
+                    ),
+                  )
+                : Center(child: Text('Internet not connected'));
           },
         ));
   }

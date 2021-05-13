@@ -7,6 +7,7 @@ void main() {
   runApp(MaterialApp(home: NewsApp()));
 }
 
+// Wrap main widget inside the StreamProvider
 class NewsApp extends StatefulWidget {
   NewsApp({Key key}) : super(key: key);
 
@@ -38,7 +39,7 @@ class _NewsAppState extends State<NewsApp> {
             return Center(
               child: CircularProgressIndicator(
                 backgroundColor: Colors.white,
-                valueColor:AlwaysStoppedAnimation(Colors.red[400]),
+                valueColor: AlwaysStoppedAnimation(Colors.red[400]),
               ),
             );
           },

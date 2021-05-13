@@ -17,6 +17,7 @@ class CameraDemo extends StatefulWidget {
 class _CameraDemoState extends State<CameraDemo> {
   File _image;
   final picker = ImagePicker();
+  String base64Image = '';
   /*
   * val = camera || gallery
   */
@@ -30,8 +31,8 @@ class _CameraDemoState extends State<CameraDemo> {
         _image = new File(pickedFile.path);
 
         List<int> imageBytes = _image.readAsBytesSync();
-        String base64Image = base64.encode(imageBytes);
-        print(base64Image);
+        base64Image = base64.encode(imageBytes);
+        debugPrint(base64Image);
       } else {
         print('No image selected.');
       }

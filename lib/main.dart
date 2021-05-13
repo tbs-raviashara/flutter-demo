@@ -1,3 +1,4 @@
+import 'package:demo/alertdemo.dart';
 import 'package:demo/camerademo.dart';
 import 'package:demo/carousellist.dart';
 import 'package:demo/deviceinfo.dart';
@@ -32,5 +33,6 @@ void main() {
     '/google-map': (context) => GoogleMapScreen(),
     '/news': (context) => NewsApp(),
     '/camera': (context) => CameraDemo(),
+    '/dialog': (context) => DialogDemo(),
   }));
 }

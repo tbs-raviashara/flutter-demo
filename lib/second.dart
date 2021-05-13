@@ -1,11 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:http/http.dart' as http;
 import 'package:share/share.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:story_view/story_view.dart';
 
 void main() {
   runApp(MaterialApp(

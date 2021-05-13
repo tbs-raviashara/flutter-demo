@@ -113,6 +113,12 @@ class Home extends StatelessWidget {
               'Upload Image',
             ),
           ),
+          ElevatedButton(
+            onPressed: () => {Navigator.pushNamed(context, '/dialog')},
+            child: new Text(
+              'Awesome Dialogs',
+            ),
+          ),
         ]))));
   }
 

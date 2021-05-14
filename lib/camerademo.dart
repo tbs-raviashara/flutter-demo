@@ -15,39 +15,22 @@ class CameraDemo extends StatefulWidget {
 }
 
 class _CameraDemoState extends State<CameraDemo> {
-  File _image;
-  final picker = ImagePicker();
-  /*
-  * val = camera || gallery
-  */
-  Future getImage(String val) async {
-    final pickedFile = await picker.getImage(
-        source: val == 'camera' ? ImageSource.camera : ImageSource.gallery,
-        imageQuality: 100);
+  File _imageFile;
+  var _width;
 
-    setState(() {
-      if (pickedFile != null) {
-        _image = new File(pickedFile.path);
-      } else {
-        print('No image selected.');
-      }
-    });
-  }
-
-  /*onImageButtonPressed(String source, capturedImageFile) async {
+  onImageButtonPressed(String source, {capturedImageFile}) async {
     final ImagePicker _picker = ImagePicker();
     File val;
 
     final pickedFile = await _picker.getImage(
-      source: source == 'camera' ? ImageSource.camera : ImageSource.gallery,
+      source: source == 'Camera' ? ImageSource.camera : ImageSource.gallery,
     );
-
-    print(pickedFile.path);
 
     val = await ImageCropper.cropImage(
       sourcePath: pickedFile.path,
       aspectRatioPresets: [
         CropAspectRatioPreset.square,
+        CropAspectRatioPreset.ratio3x2,
         CropAspectRatioPreset.original,
         CropAspectRatioPreset.ratio4x3,
         CropAspectRatioPreset.ratio16x9
@@ -56,57 +39,104 @@ class _CameraDemoState extends State<CameraDemo> {
       compressFormat: ImageCompressFormat.jpg,
       androidUiSettings: AndroidUiSettings(
         toolbarColor: Colors.white,
-        toolbarTitle: "genie cropper",
+        toolbarTitle: "Crop Photo",
       ),
     );
-    capturedImageFile(val.path);
-  }*/
+    capturedImageFile(val);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Upload Image"),
+    _width = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Upload Image"),
         backgroundColor: Colors.red[400],
       ),
-      body: new Builder(
-        builder: (BuildContext context) {
-          return Center(
-            child: new Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new MaterialButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0)),
-                    color: Colors.red[400],
-                    padding: EdgeInsets.only(left: 30, right: 30),
-                    child: Text(
-                      'Gallery',
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
-                    onPressed: () => {getImage('gallery')}),
-                MaterialButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0)),
-                    color: Colors.red[400],
-                    padding: EdgeInsets.only(left: 30, right: 30),
-                    child: Text(
-                      'Photo',
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
-                    onPressed: () => {getImage('camera')}),
-                SizedBox(
-                  height: 200.0,
-                  width: 300.0,
-                  child: _image == null
-                      ? Center(child: new Text('Sorry nothing selected!!'))
-                      : Center(child: new Image.file(_image)),
-                )
-              ],
-            ),
-          );
-        },
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: _previewImage(context),
+        ),
       ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            width: 100.0,
+            height: 50.0,
+            child: FloatingActionButton.extended(
+              label: Text("Camera"),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50)),
+              onPressed: () {
+                onImageButtonPressed("Camera", capturedImageFile: (s) {
+                  setState(() {
+                    _imageFile = s;
+                  });
+                });
+              },
+            ),
+          ),
+          Container(
+            width: 100.0,
+            height: 50.0,
+            child: FloatingActionButton.extended(
+              label: Text("Gallery"),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50)),
+              onPressed: () {
+                onImageButtonPressed(
+                  "Gallery",
+                  capturedImageFile: (s) {
+                    setState(() {
+                      _imageFile = s;
+                    });
+                  },
+                );
+              },
+            ),
+          ),
+        ],
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  Widget _previewImage(
+    BuildContext context,
+  ) {
+    _width = MediaQuery.of(context).size.width;
+    if (_imageFile != null) {
+      return Container(
+        height: _width * 0.34,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+          color: Colors.grey,
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.file(
+            _imageFile,
+            height: _width * 0.34,
+            width: _width,
+            alignment: Alignment.center,
+            fit: BoxFit.fitWidth,
+          ),
+        ),
+      );
+    } else {
+      return Container(
+        height: _width * 0.34,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+          color: Colors.grey,
+        ),
+        child: Center(child: Text('Image not selected')),
+      );
+    }
   }
 }

@@ -1,6 +1,6 @@
-import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
 void main() {
@@ -17,7 +17,6 @@ class CameraDemo extends StatefulWidget {
 class _CameraDemoState extends State<CameraDemo> {
   File _image;
   final picker = ImagePicker();
-  String base64Image = '';
   /*
   * val = camera || gallery
   */
@@ -29,15 +28,39 @@ class _CameraDemoState extends State<CameraDemo> {
     setState(() {
       if (pickedFile != null) {
         _image = new File(pickedFile.path);
-
-        List<int> imageBytes = _image.readAsBytesSync();
-        base64Image = base64.encode(imageBytes);
-        debugPrint(base64Image);
       } else {
         print('No image selected.');
       }
     });
   }
+
+  /*onImageButtonPressed(String source, capturedImageFile) async {
+    final ImagePicker _picker = ImagePicker();
+    File val;
+
+    final pickedFile = await _picker.getImage(
+      source: source == 'camera' ? ImageSource.camera : ImageSource.gallery,
+    );
+
+    print(pickedFile.path);
+
+    val = await ImageCropper.cropImage(
+      sourcePath: pickedFile.path,
+      aspectRatioPresets: [
+        CropAspectRatioPreset.square,
+        CropAspectRatioPreset.original,
+        CropAspectRatioPreset.ratio4x3,
+        CropAspectRatioPreset.ratio16x9
+      ],
+      compressQuality: 100,
+      compressFormat: ImageCompressFormat.jpg,
+      androidUiSettings: AndroidUiSettings(
+        toolbarColor: Colors.white,
+        toolbarTitle: "genie cropper",
+      ),
+    );
+    capturedImageFile(val.path);
+  }*/
 
   @override
   Widget build(BuildContext context) {

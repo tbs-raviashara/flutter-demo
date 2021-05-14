@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:demo/components/customImageView.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -56,7 +57,7 @@ class _CameraDemoState extends State<CameraDemo> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
-          child: _previewImage(context),
+          child: previewImage(context, _imageFile, _width),
         ),
       ),
       floatingActionButton: Row(
@@ -66,6 +67,7 @@ class _CameraDemoState extends State<CameraDemo> {
             width: 100.0,
             height: 50.0,
             child: FloatingActionButton.extended(
+              backgroundColor: Colors.red[400],
               label: Text("Camera"),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50)),
@@ -82,6 +84,7 @@ class _CameraDemoState extends State<CameraDemo> {
             width: 100.0,
             height: 50.0,
             child: FloatingActionButton.extended(
+              backgroundColor: Colors.red[400],
               label: Text("Gallery"),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50)),
@@ -100,43 +103,5 @@ class _CameraDemoState extends State<CameraDemo> {
         ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
-  }
-
-  Widget _previewImage(
-    BuildContext context,
-  ) {
-    _width = MediaQuery.of(context).size.width;
-    if (_imageFile != null) {
-      return Container(
-        height: _width * 0.34,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
-          color: Colors.grey,
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image.file(
-            _imageFile,
-            height: _width * 0.34,
-            width: _width,
-            alignment: Alignment.center,
-            fit: BoxFit.fitWidth,
-          ),
-        ),
-      );
-    } else {
-      return Container(
-        height: _width * 0.34,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
-          color: Colors.grey,
-        ),
-        child: Center(child: Text('Image not selected')),
-      );
-    }
   }
 }

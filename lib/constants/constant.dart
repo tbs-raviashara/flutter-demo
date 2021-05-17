@@ -2,7 +2,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 bool isConnected;
 
-/**
+/*
  * gravity: TOP || BOTTOM || CENTER || TOP_LEFT || TOP_RIGHT || BOTTOM_LEFT || BOTTOM_RIGHT || CENTER_LEFT || CENTER_RIGHT || SNACKBAR
  
  * toastLength: LENGTH_SHORT || LENGTH_LONG

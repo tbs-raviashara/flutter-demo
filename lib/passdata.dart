@@ -13,14 +13,14 @@ class PassData extends StatelessWidget {
   Widget build(BuildContext context) {
     // Get previous page data
     data = ModalRoute.of(context).settings.arguments;
-    print(data);
     return Scaffold(
         appBar: AppBar(
             title: Text('Home'),
             centerTitle: true,
             backgroundColor: Colors.red[400]),
         body: new Center(
-          child: Text("Name:- ${data['name']} \nCountry:- ${data['country']} ",
+          child: Text(
+              "Name:- ${data['name']} \nEmail:- ${data['email']} \Address:- ${data['address']}",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
         ));
   }

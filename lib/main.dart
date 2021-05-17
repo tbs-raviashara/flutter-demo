@@ -8,6 +8,7 @@ import 'package:demo/googlemapdemo.dart';
 import 'package:demo/groupedlist.dart';
 import 'package:demo/home.dart';
 import 'package:demo/listview.dart';
+import 'package:demo/listwithselect.dart';
 import 'package:demo/literolling.dart';
 import 'package:demo/newsApp.dart';
 import 'package:demo/passdata.dart';
@@ -55,6 +56,7 @@ class MyApp extends StatelessWidget {
           '/camera': (context) => CameraDemo(),
           '/dialog': (context) => DialogDemo(),
           '/popup-design': (context) => PopupDesign(),
+          '/list-select': (context) => ListWithSelect(),
         }));
   }
 }

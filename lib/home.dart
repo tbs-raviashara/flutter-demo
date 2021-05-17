@@ -147,6 +147,13 @@ class _HomeState extends State<Home> {
                   'Awesome Dialogs',
                 ),
               ),
+              ElevatedButton(
+                onPressed: () =>
+                    {Navigator.pushNamed(context, '/popup-design')},
+                child: new Text(
+                  'Popup Design',
+                ),
+              ),
             ])))));
   }
 

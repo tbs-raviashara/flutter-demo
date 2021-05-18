@@ -169,6 +169,12 @@ class _HomeState extends State<Home> {
                       'List With Select',
                     ),
                   ),
+                  ElevatedButton(
+                    onPressed: () => {Navigator.pushNamed(context, '/scan')},
+                    child: new Text(
+                      'Scan Code',
+                    ),
+                  ),
                 ]))))));
   }
 

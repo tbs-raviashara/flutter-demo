@@ -13,6 +13,7 @@ import 'package:demo/literolling.dart';
 import 'package:demo/newsApp.dart';
 import 'package:demo/passdata.dart';
 import 'package:demo/popupdesign.dart';
+import 'package:demo/qrscan.dart';
 import 'package:demo/rating.dart';
 import 'package:demo/second.dart';
 import 'package:demo/servicrs/checknetwork_service.dart';
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
           '/dialog': (context) => DialogDemo(),
           '/popup-design': (context) => PopupDesign(),
           '/list-select': (context) => ListWithSelect(),
+          '/scan': (context) => QRScan(),
         }));
   }
 }

@@ -13,6 +13,11 @@
 - Carousel slider
 - Launch url
 - Google map
+- News App
+- Upload image with crop
+- Awesome dialogs
+- Popup design
+- List with select
 
 ## Install
 

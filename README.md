@@ -18,6 +18,8 @@
 - Awesome dialogs
 - Popup design
 - List with select
+- Scan qr and barcode
+- Splash screen
 
 ## Install
 

@@ -175,6 +175,12 @@ class _HomeState extends State<Home> {
                       'Scan Code',
                     ),
                   ),
+                  ElevatedButton(
+                    onPressed: () => {Navigator.pushNamed(context, '/pin')},
+                    child: new Text(
+                      'Pin Input',
+                    ),
+                  ),
                 ]))))));
   }
 

@@ -12,6 +12,7 @@ import 'package:demo/listwithselect.dart';
 import 'package:demo/literolling.dart';
 import 'package:demo/newsApp.dart';
 import 'package:demo/passdata.dart';
+import 'package:demo/pinput.dart';
 import 'package:demo/popupdesign.dart';
 import 'package:demo/qrscan.dart';
 import 'package:demo/rating.dart';
@@ -61,6 +62,7 @@ class MyApp extends StatelessWidget {
           '/popup-design': (context) => PopupDesign(),
           '/list-select': (context) => ListWithSelect(),
           '/scan': (context) => QRScan(),
+          '/pin': (context) => PinPutTest(),
         }));
   }
 }

@@ -24,7 +24,7 @@ class _SplashAppState extends State<SplashApp> {
   }
 
   startTimer() async {
-    Timer(Duration(seconds: 5), nextScreen);
+    Timer(Duration(seconds: 2), nextScreen);
   }
 
   @override

@@ -8,6 +8,7 @@ void main() {
   ));
 }
 
+// ignore: must_be_immutable
 class List extends StatelessWidget {
   List({Key key}) : super(key: key);
   RefreshController _refreshController =

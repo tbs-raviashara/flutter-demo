@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:connectivity/connectivity.dart';
 import 'package:demo/constants/constant.dart';
-import 'package:demo/model/connectivity_status.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +23,7 @@ class ConnectivityService {
   }
 
   // Convert from the third part enum to our own enum
-  ConnectivityStatus _getStatusFromResult(ConnectivityResult result) {
+  /*ConnectivityStatus _getStatusFromResult(ConnectivityResult result) {
     switch (result) {
       case ConnectivityResult.mobile:
         isConnected = true;
@@ -43,5 +42,5 @@ class ConnectivityService {
         isConnected = false;
         return ConnectivityStatus.Offline;
     }
-  }
+  }*/
 }

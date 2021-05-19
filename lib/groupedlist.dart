@@ -9,6 +9,7 @@ void main() {
   ));
 }
 
+// ignore: must_be_immutable
 class GroupList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

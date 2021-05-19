@@ -6,6 +6,7 @@ void main() {
   ));
 }
 
+// ignore: must_be_immutable
 class PassData extends StatelessWidget {
   PassData({Key key}) : super(key: key);
   Map data = {};

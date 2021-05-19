@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+void main() {
+  runApp(MaterialApp(home: GLogin()));
+}
+
+// ignore: must_be_immutable
 class GLogin extends StatelessWidget {
   GLogin({Key key}) : super(key: key);
   final googleSign = GoogleSignIn(scopes: ['email']);

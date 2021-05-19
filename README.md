@@ -20,6 +20,7 @@
 - List with select
 - Scan qr and barcode
 - Splash screen
+- Pin input
 
 ## Install
 

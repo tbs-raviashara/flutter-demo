@@ -181,6 +181,12 @@ class _HomeState extends State<Home> {
                       'Pin Input',
                     ),
                   ),
+                  ElevatedButton(
+                    onPressed: () => {Navigator.pushNamed(context, '/input')},
+                    child: new Text(
+                      'Input',
+                    ),
+                  ),
                 ]))))));
   }
 

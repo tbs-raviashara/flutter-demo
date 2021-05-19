@@ -7,6 +7,7 @@ import 'package:demo/googlelogin.dart';
 import 'package:demo/googlemapdemo.dart';
 import 'package:demo/groupedlist.dart';
 import 'package:demo/home.dart';
+import 'package:demo/inputfield.dart';
 import 'package:demo/listview.dart';
 import 'package:demo/listwithselect.dart';
 import 'package:demo/literolling.dart';
@@ -63,6 +64,7 @@ class MyApp extends StatelessWidget {
           '/list-select': (context) => ListWithSelect(),
           '/scan': (context) => QRScan(),
           '/pin': (context) => PinPutTest(),
+          '/input': (context) => InputDemo(),
         }));
   }
 }

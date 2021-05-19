@@ -16,62 +16,63 @@ class GroupList extends StatelessWidget {
     data = ModalRoute.of(context).settings.arguments;
     print(data);
     return Scaffold(
-      appBar: AppBar(
-          title: Text('Group List'),
-          centerTitle: true,
-          backgroundColor: Colors.red[400]),
-      body: GroupedListView<dynamic, String>(
-        elements: _elements,
-        groupBy: (element) => element['ShiftGroupDescription'],
-        groupComparator: (value1, value2) => value2.compareTo(value1),
-        itemComparator: (item1, item2) =>
-            item1['UserFullName'].compareTo(item2['UserFullName']),
-        order: GroupedListOrder.ASC,
-        useStickyGroupSeparators: true,
-        groupSeparatorBuilder: (String value) => Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            value,
-            textAlign: TextAlign.left,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-        ),
-        itemBuilder: (c, element) {
-          return Slidable(
-            actionPane: SlidableDrawerActionPane(),
-            actionExtentRatio: 0.25,
-            child: Container(
-              color: Colors.white,
-              child: ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.red,
-                    child: Text(element['NameInitial'],
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold)),
-                    foregroundColor: Colors.white,
-                  ),
-                  title: Text(element['UserFullName'],
-                      style: TextStyle(
-                          color: Colors.red, fontWeight: FontWeight.bold))),
+        appBar: AppBar(
+            title: Text('Group List'),
+            centerTitle: true,
+            backgroundColor: Colors.red[400]),
+        body: GroupedListView<dynamic, String>(
+          elements: _elements,
+          groupBy: (element) => element['ShiftGroupDescription'],
+          groupComparator: (value1, value2) => value2.compareTo(value1),
+          itemComparator: (item1, item2) =>
+              item1['UserFullName'].compareTo(item2['UserFullName']),
+          sort: true,
+          order: GroupedListOrder.ASC,
+          useStickyGroupSeparators: true,
+          groupSeparatorBuilder: (String value) => Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              value,
+              textAlign: TextAlign.left,
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            actions: <Widget>[
-              IconSlideAction(
-                caption: 'Archive',
-                color: Colors.blue,
-                icon: Icons.archive,
-                onTap: () => _showSnackBar('Archive'),
+          ),
+          itemBuilder: (c, element) {
+            return Slidable(
+              actionPane: SlidableDrawerActionPane(),
+              actionExtentRatio: 0.25,
+              child: Container(
+                color: Colors.white,
+                child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: Colors.red,
+                      child: Text(element['NameInitial'],
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
+                      foregroundColor: Colors.white,
+                    ),
+                    title: Text(element['UserFullName'],
+                        style: TextStyle(
+                            color: Colors.red, fontWeight: FontWeight.bold))),
               ),
-              IconSlideAction(
-                caption: 'Share',
-                color: Colors.indigo,
-                icon: Icons.share,
-                onTap: () => _showSnackBar('Share'),
-              ),
-            ],
-          );
-        },
-      )
-    );
+              actions: <Widget>[
+                IconSlideAction(
+                  caption: 'Archive',
+                  color: Colors.blue,
+                  icon: Icons.archive,
+                  onTap: () => _showSnackBar('Archive'),
+                ),
+                IconSlideAction(
+                  caption: 'Share',
+                  color: Colors.indigo,
+                  icon: Icons.share,
+                  onTap: () => _showSnackBar('Share'),
+                ),
+              ],
+            );
+          },
+        ));
   }
 
   _showSnackBar(String val) {

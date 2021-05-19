@@ -17,6 +17,7 @@ import 'package:demo/qrscan.dart';
 import 'package:demo/rating.dart';
 import 'package:demo/second.dart';
 import 'package:demo/servicrs/checknetwork_service.dart';
+import 'package:demo/splashscreen.dart';
 import 'package:demo/storyview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -38,9 +39,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return (MaterialApp(
-        home: Home(),
+        home: SplashApp(),
         navigatorKey: ConnectivityService().navigatorKey,
         routes: {
+          '/home': (context) => Home(),
           '/second': (context) => Second(),
           '/story': (context) => Story(),
           '/lite-roling': (context) => LiteRolling(),

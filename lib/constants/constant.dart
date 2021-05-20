@@ -1,4 +1,5 @@
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 bool isConnected;
 
@@ -37,3 +38,27 @@ void showToast(String message, String length, String gravity, backgroundColor,
       textColor: textColor,
       fontSize: fontSize);
 }
+
+final nameValidator = MultiValidator([
+  RequiredValidator(errorText: "Name is required!"),
+  MinLengthValidator(3, errorText: "Name should be atleast 3 characters!")
+]);
+
+final emailValidator = MultiValidator([
+  RequiredValidator(errorText: "Email is required!"),
+  EmailValidator(errorText: "Enter a valid email address!")
+]);
+
+final mobileValidator = MultiValidator([
+  RequiredValidator(errorText: "Contact Number is required!"),
+  MinLengthValidator(10, errorText: "Enter valid mobile number!")
+]);
+
+final requiredValidator = RequiredValidator(errorText: "Web url is required!");
+
+final passwordValidator = MultiValidator([
+  RequiredValidator(errorText: "Password is required!"),
+  MinLengthValidator(6, errorText: "Password should be atleast 6 characters!"),
+  MaxLengthValidator(20,
+      errorText: "Password should not be greater than 20 characters!")
+]);

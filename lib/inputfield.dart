@@ -13,120 +13,144 @@ class InputDemo extends StatefulWidget {
 
 class _InputDemoState extends State<InputDemo> {
   bool _showPassword = true;
-
+  TextEditingController firstNameController = new TextEditingController();
+  TextEditingController emailController = new TextEditingController();
+  TextEditingController cnoController = new TextEditingController();
+  TextEditingController weburlController = new TextEditingController();
+  TextEditingController addressController = new TextEditingController();
+  TextEditingController passwordController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: AppBar(
-        title: Text('Input Demo'),
-        centerTitle: true,
-        backgroundColor: Colors.red[400],
-      ),
-      body: SingleChildScrollView(
-          child: Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Center(
-                  child: Column(children: <Widget>[
-                TextField(
-                  autofocus: true,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'First Name',
-                      hintText: 'Enter First Name'),
-                  obscureText: false,
-                  style: TextStyle(color: Colors.black87, fontSize: 20),
-                  textInputAction: TextInputAction.next,
-                ),
-                SizedBox(height: 15),
-                TextField(
-                    autofocus: true,
-                    decoration: InputDecoration(
-                        prefixIcon: Icon(
-                          Icons.email_outlined,
-                          color: Colors.grey,
-                          size: 14,
-                        ),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        border: OutlineInputBorder(),
-                        labelText: 'E-mail',
-                        hintText: 'Enter E-mail'),
-                    keyboardType: TextInputType.emailAddress,
-                    obscureText: false,
-                    style: TextStyle(color: Colors.black87, fontSize: 20),
-                    textInputAction: TextInputAction.next),
-                SizedBox(height: 15),
-                TextField(
-                  maxLength: 10,
-                  keyboardType: TextInputType.number,
-                  autofocus: true,
-                  decoration: InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.phone,
-                        color: Colors.grey,
-                        size: 14,
+            appBar: AppBar(
+              title: Text('Input Demo'),
+              centerTitle: true,
+              backgroundColor: Colors.red[400],
+            ),
+            body: SingleChildScrollView(
+                child: Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: Center(
+                        child: Column(children: <Widget>[
+                      TextField(
+                        autofocus: true,
+                        controller: firstNameController,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'First Name',
+                            hintText: 'Enter First Name'),
+                        obscureText: false,
+                        style: TextStyle(color: Colors.black87, fontSize: 20),
+                        textInputAction: TextInputAction.next,
                       ),
-                      floatingLabelBehavior: FloatingLabelBehavior.auto,
-                      border: OutlineInputBorder(),
-                      labelText: 'Contact Number',
-                      hintText: 'Enter Contact nNumber'),
-                  obscureText: false,
-                  style: TextStyle(color: Colors.black87, fontSize: 20),
-                  textInputAction: TextInputAction.next,
-                ),
-                SizedBox(height: 15),
-                TextField(
-                  keyboardType: TextInputType.url,
-                  autofocus: true,
-                  decoration: InputDecoration(
-                      floatingLabelBehavior: FloatingLabelBehavior.auto,
-                      border: OutlineInputBorder(),
-                      labelText: 'Web Site',
-                      hintText: 'Enter Web URL'),
-                  obscureText: false,
-                  style: TextStyle(color: Colors.black87, fontSize: 20),
-                  textInputAction: TextInputAction.next,
-                ),
-                SizedBox(height: 15),
-                TextField(
-                    keyboardType: TextInputType.streetAddress,
-                    autofocus: true,
-                    decoration: InputDecoration(
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        border: OutlineInputBorder(),
-                        labelText: 'Address',
-                        hintText: 'Enter Address'),
-                    maxLines: 5,
-                    obscureText: false,
-                    style: TextStyle(color: Colors.black87, fontSize: 20),
-                    textInputAction: TextInputAction.newline),
-                SizedBox(height: 15),
-                TextField(
-                    autofocus: true,
-                    decoration: InputDecoration(
-                      floatingLabelBehavior: FloatingLabelBehavior.auto,
-                      border: OutlineInputBorder(),
-                      labelText: 'Password',
-                      hintText: 'Enter Password',
-                      suffixIcon: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _showPassword = !_showPassword;
-                          });
+                      SizedBox(height: 15),
+                      TextField(
+                          autofocus: true,
+                          controller: emailController,
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(
+                                Icons.email_outlined,
+                                color: Colors.grey,
+                                size: 14,
+                              ),
+                              floatingLabelBehavior: FloatingLabelBehavior.auto,
+                              border: OutlineInputBorder(),
+                              labelText: 'E-mail',
+                              hintText: 'Enter E-mail'),
+                          keyboardType: TextInputType.emailAddress,
+                          obscureText: false,
+                          style: TextStyle(color: Colors.black87, fontSize: 20),
+                          textInputAction: TextInputAction.next),
+                      SizedBox(height: 15),
+                      TextField(
+                        autofocus: true,
+                        controller: cnoController,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.phone,
+                              color: Colors.grey,
+                              size: 14,
+                            ),
+                            floatingLabelBehavior: FloatingLabelBehavior.auto,
+                            border: OutlineInputBorder(),
+                            labelText: 'Contact Number',
+                            hintText: 'Enter Contact nNumber'),
+                        maxLength: 10,
+                        obscureText: false,
+                        style: TextStyle(color: Colors.black87, fontSize: 20),
+                        textInputAction: TextInputAction.next,
+                      ),
+                      SizedBox(height: 15),
+                      TextField(
+                        autofocus: true,
+                        controller: weburlController,
+                        decoration: InputDecoration(
+                            floatingLabelBehavior: FloatingLabelBehavior.auto,
+                            border: OutlineInputBorder(),
+                            labelText: 'Web Site',
+                            hintText: 'Enter Web URL'),
+                        keyboardType: TextInputType.url,
+                        obscureText: false,
+                        style: TextStyle(color: Colors.black87, fontSize: 20),
+                        textInputAction: TextInputAction.next,
+                      ),
+                      SizedBox(height: 15),
+                      TextField(
+                          autofocus: true,
+                          controller: addressController,
+                          decoration: InputDecoration(
+                              floatingLabelBehavior: FloatingLabelBehavior.auto,
+                              border: OutlineInputBorder(),
+                              labelText: 'Address',
+                              hintText: 'Enter Address'),
+                          keyboardType: TextInputType.streetAddress,
+                          maxLines: 5,
+                          obscureText: false,
+                          style: TextStyle(color: Colors.black87, fontSize: 20),
+                          textInputAction: TextInputAction.newline),
+                      SizedBox(height: 15),
+                      TextField(
+                          autofocus: true,
+                          controller: passwordController,
+                          decoration: InputDecoration(
+                            floatingLabelBehavior: FloatingLabelBehavior.auto,
+                            border: OutlineInputBorder(),
+                            labelText: 'Password',
+                            hintText: 'Enter Password',
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _showPassword = !_showPassword;
+                                });
+                              },
+                              child: Icon(
+                                _showPassword
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                                color: Colors.grey,
+                                size: 22,
+                              ),
+                            ),
+                          ),
+                          obscureText: _showPassword,
+                          style: TextStyle(color: Colors.black87, fontSize: 20),
+                          textInputAction: TextInputAction.send),
+                      SizedBox(height: 15),
+                      ElevatedButton(
+                        onPressed: () {
+                          print(firstNameController.text);
+                          print(emailController.text);
+                          print(cnoController.text);
+                          print(weburlController.text);
+                          print(addressController.text);
+                          print(passwordController.text);
                         },
-                        child: Icon(
-                          _showPassword
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                          color: Colors.grey,
-                          size: 14,
-                        ),
-                      ),
-                    ),
-                    obscureText: _showPassword,
-                    style: TextStyle(color: Colors.black87, fontSize: 20),
-                    textInputAction: TextInputAction.send),
-              ])))),
-    ));
+                        child: new Text('Submit'),
+                        style: ElevatedButton.styleFrom(
+                            primary: Colors.purple[400]),
+                      )
+                    ]))))));
   }
 }

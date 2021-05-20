@@ -21,6 +21,7 @@
 - Scan qr and barcode
 - Splash screen
 - Pin input
+- Form with validation
 
 ## Install
 

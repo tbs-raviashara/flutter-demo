@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 
 void main() {
   runApp(MaterialApp(home: LocalNotificationDemo()));
@@ -19,14 +22,23 @@ class _LocalNotificationDemoState extends State<LocalNotificationDemo> {
   @override
   void initState() {
     super.initState();
-    var initializationSettingsAndroid =
-        AndroidInitializationSettings('flutter_devs');
-    var initializationSettingsIOs = IOSInitializationSettings();
-    var initSetttings = InitializationSettings(
-        android: initializationSettingsAndroid, iOS: initializationSettingsIOs);
+    final AndroidInitializationSettings initializationSettingsAndroid =
+        AndroidInitializationSettings('@mipmap/ic_launcher');
+    final IOSInitializationSettings initializationSettingsIOS =
+        IOSInitializationSettings(
+      onDidReceiveLocalNotification: onDidReceiveLocalNotification,
+    );
 
-    flutterLocalNotificationsPlugin.initialize(initSetttings,
+    final InitializationSettings initializationSettings =
+        InitializationSettings(
+            android: initializationSettingsAndroid,
+            iOS: initializationSettingsIOS);
+    flutterLocalNotificationsPlugin.initialize(initializationSettings,
         onSelectNotification: onSelectNotification);
+    // tz.initializeTimeZones();
+    // var locations = tz.timeZoneDatabase.locations;
+    // tz.setLocalLocation(tz.getLocation("India"));
+    tz.initializeTimeZones();
   }
 
   // ignore: missing_return
@@ -40,8 +52,27 @@ class _LocalNotificationDemoState extends State<LocalNotificationDemo> {
     var iOS = IOSNotificationDetails();
     var platform = new NotificationDetails(android: android, iOS: iOS);
     await flutterLocalNotificationsPlugin.show(
-        0, 'Flutter devs', 'Flutter Local Notification Demo', platform,
-        payload: 'Welcome to the Local Notification demo');
+        0, 'Demo App', 'Flutter Local Notification', platform,
+        payload: 'Welcome to the Local Notification');
+  }
+
+  showSchedulrNotification() async {
+    // DateTime offsetTime = DateTime.now().add(const Duration(seconds: 20));
+    var android = AndroidNotificationDetails('id', 'channel ', 'description',
+        priority: Priority.high, importance: Importance.max);
+    var iOS = IOSNotificationDetails();
+    var platform = new NotificationDetails(android: android, iOS: iOS);
+
+    await flutterLocalNotificationsPlugin.zonedSchedule(
+        1,
+        'Demo App',
+        'Flutter Schedule Notification',
+        tz.TZDateTime.now(tz.local).add(const Duration(seconds: 10)),
+        platform,
+        androidAllowWhileIdle: true,
+        payload: 'Welcome to the Local Schedule Notification',
+        uiLocalNotificationDateInterpretation:
+            UILocalNotificationDateInterpretation.absoluteTime);
   }
 
   Future<void> cancelNotification() async {
@@ -57,12 +88,38 @@ class _LocalNotificationDemoState extends State<LocalNotificationDemo> {
               backgroundColor: Colors.red[400],
               centerTitle: true,
             ),
-            body: Center(
-              child: ElevatedButton(
+            body: new Center(
+                child: SingleChildScrollView(
+                    child: Column(children: <Widget>[
+              ElevatedButton(
                   child: Text('Show Notification'),
                   onPressed: () {
                     showNotification();
                   }),
-            )));
+              ElevatedButton(
+                  child: Text('Show Schedule Notification'),
+                  onPressed: () {
+                    showSchedulrNotification();
+                  }),
+            ])))));
+  }
+
+  // ignore: missing_return
+  Future onDidReceiveLocalNotification(
+      int id, String title, String body, String payload) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => CupertinoAlertDialog(
+        title: Text(title),
+        content: Text(body),
+        actions: [
+          CupertinoDialogAction(
+            isDefaultAction: true,
+            child: Text('Ok'),
+            onPressed: () async {},
+          )
+        ],
+      ),
+    );
   }
 }

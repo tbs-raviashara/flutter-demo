@@ -20,6 +20,8 @@ class _InputDemoState extends State<InputDemo> {
   TextEditingController weburlController = new TextEditingController();
   TextEditingController addressController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
+  bool privacyPolicy = false;
+  String genderController = "Male";
   final _form = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,6 @@ class _InputDemoState extends State<InputDemo> {
                         padding: EdgeInsets.all(20.0),
                         child: Center(
                             child: Column(children: <Widget>[
-                          // TextF
                           TextFormField(
                             validator: nameValidator,
                             autofocus: true,
@@ -72,6 +73,50 @@ class _InputDemoState extends State<InputDemo> {
                               style: TextStyle(
                                   color: Colors.black87, fontSize: 20),
                               textInputAction: TextInputAction.next),
+                          SizedBox(height: 15),
+                          Row(children: <Widget>[
+                            Expanded(
+                                flex: 10, // 100%
+                                child: Container(
+                                  padding: const EdgeInsets.only(
+                                      left: 10.0,
+                                      right: 10.0,
+                                      top: 5.0,
+                                      bottom: 5.0),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(3.0),
+                                      border: Border.all(color: Colors.grey)),
+                                  child: DropdownButton<String>(
+                                    underline: Container(),
+                                    isExpanded: true,
+                                    value: genderController,
+                                    style: TextStyle(color: Colors.black),
+                                    items: <String>[
+                                      'Male',
+                                      'Female',
+                                      'Other',
+                                    ].map<DropdownMenuItem<String>>(
+                                        (String value) {
+                                      return DropdownMenuItem<String>(
+                                        value: value,
+                                        child: Text(value),
+                                      );
+                                    }).toList(),
+                                    hint: Text(
+                                      "Select Gender",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                    onChanged: (String value) {
+                                      setState(() {
+                                        genderController = value;
+                                      });
+                                    },
+                                  ),
+                                ))
+                          ]),
                           SizedBox(height: 15),
                           TextFormField(
                             validator: mobileValidator,
@@ -160,12 +205,35 @@ class _InputDemoState extends State<InputDemo> {
                                   color: Colors.black87, fontSize: 20),
                               textInputAction: TextInputAction.send),
                           SizedBox(height: 15),
+                          Row(children: <Widget>[
+                            Checkbox(
+                              checkColor: Colors.white,
+                              activeColor: Colors.red,
+                              value: privacyPolicy,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  privacyPolicy = value;
+                                });
+                              },
+                            ),
+                            Text(
+                              'Privacy Policy ',
+                              style: TextStyle(fontSize: 17.0),
+                            )
+                          ]),
                           ElevatedButton(
                             onPressed: () {
                               final isValid = _form.currentState.validate();
                               if (!isValid) {
                                 return false;
                               }
+
+                              if (!privacyPolicy) {
+                                showToast("Check Privacy Policy", 'LENGTH_LONG',
+                                    'TOP', Colors.black, Colors.white, 16.0);
+                                return false;
+                              }
+                              print(privacyPolicy);
                               print(firstNameController.text);
                               print(emailController.text);
                               print(cnoController.text);
@@ -175,7 +243,7 @@ class _InputDemoState extends State<InputDemo> {
                             },
                             child: new Text('Submit'),
                             style: ElevatedButton.styleFrom(
-                                primary: Colors.purple[400]),
+                                primary: Colors.red[400]),
                           )
                         ])))))));
   }

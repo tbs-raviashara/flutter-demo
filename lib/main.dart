@@ -11,6 +11,7 @@ import 'package:demo/inputfield.dart';
 import 'package:demo/listview.dart';
 import 'package:demo/listwithselect.dart';
 import 'package:demo/literolling.dart';
+import 'package:demo/localnotification.dart';
 import 'package:demo/newsApp.dart';
 import 'package:demo/passdata.dart';
 import 'package:demo/pinput.dart';
@@ -65,6 +66,7 @@ class MyApp extends StatelessWidget {
           '/scan': (context) => QRScan(),
           '/pin': (context) => PinPutTest(),
           '/input': (context) => InputDemo(),
+          '/notification': (context) => LocalNotificationDemo(),
         }));
   }
 }

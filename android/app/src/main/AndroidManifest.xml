@@ -1,10 +1,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.demo">
     
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+  <uses-permission android:name="android.permission.VIBRATE" />
    <application
         android:label="demo"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
+        
+      <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+        </intent-filter>
+      </receiver>
+      <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -32,7 +42,6 @@
               android:name="io.flutter.embedding.android.SplashScreenDrawable"
               android:resource="@drawable/launch_background"
               />
-
               
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -54,5 +63,4 @@
               android:name="com.google.android.geo.API_KEY"
               android:value="AIzaSyCjYedDHK-XmVNFQClyF0NJUpG8__S3XFE"/>
     </application>
-    
 </manifest>

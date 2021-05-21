@@ -187,6 +187,13 @@ class _HomeState extends State<Home> {
                       'Input',
                     ),
                   ),
+                  ElevatedButton(
+                    onPressed: () =>
+                        {Navigator.pushNamed(context, '/notification')},
+                    child: new Text(
+                      'Local Notificcation',
+                    ),
+                  ),
                 ]))))));
   }
 

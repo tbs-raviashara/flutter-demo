@@ -22,6 +22,8 @@
 - Splash screen
 - Pin input
 - Form with validation
+- Local notification
+- Json data with service and model
 
 ## Install
 

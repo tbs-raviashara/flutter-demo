@@ -40,47 +40,48 @@ class _SecondState extends State<Second> {
   Map data = {};
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: Text('Slidable List'),
-          centerTitle: true,
-          backgroundColor: Colors.red[400]),
-      body: Slidable(
-        actionPane: SlidableDrawerActionPane(),
-        actionExtentRatio: 0.25,
-        child: Container(
-          color: Colors.red[400],
-          child: ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: Text("RA",
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+            title: Text('Slidable List'),
+            centerTitle: true,
+            backgroundColor: Colors.red[400]),
+        body: Slidable(
+          actionPane: SlidableDrawerActionPane(),
+          actionExtentRatio: 0.25,
+          child: Container(
+            color: Colors.red[400],
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Text("RA",
+                    style: TextStyle(
+                        color: Colors.red, fontWeight: FontWeight.bold)),
+                foregroundColor: Colors.white,
+              ),
+              title: Text('Ravi Ashara',
                   style: TextStyle(
-                      color: Colors.red, fontWeight: FontWeight.bold)),
-              foregroundColor: Colors.white,
+                      color: Colors.white, fontWeight: FontWeight.bold)),
+              subtitle: Text('SlidableDrawerDelegate',
+                  style: TextStyle(color: Colors.white)),
             ),
-            title: Text('Ravi Ashara',
-                style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold)),
-            subtitle: Text('SlidableDrawerDelegate',
-                style: TextStyle(color: Colors.white)),
           ),
+          actions: <Widget>[
+            IconSlideAction(
+              caption: 'Archive',
+              color: Colors.blue,
+              icon: Icons.archive,
+              onTap: () => _showSnackBar('Archive'),
+            ),
+            IconSlideAction(
+              caption: 'Share',
+              color: Colors.indigo,
+              icon: Icons.share,
+              onTap: () => _showSnackBar('Share'),
+            ),
+          ],
         ),
-        actions: <Widget>[
-          IconSlideAction(
-            caption: 'Archive',
-            color: Colors.blue,
-            icon: Icons.archive,
-            onTap: () => _showSnackBar('Archive'),
-          ),
-          IconSlideAction(
-            caption: 'Share',
-            color: Colors.indigo,
-            icon: Icons.share,
-            onTap: () => _showSnackBar('Share'),
-          ),
-        ],
       ),
     );
   }
 }
-  

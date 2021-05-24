@@ -84,54 +84,58 @@ class _PopupDesignState extends State<PopupDesign> {
       );
     }
 
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      backgroundColor: Theme.of(context).primaryColor,
-      appBar: AppBar(
-        title: Text('Popup Demo'),
-        backgroundColor: Colors.red[400],
-      ),
-      body: Builder(builder: (context) {
-        return Column(
-          children: <Widget>[
-            logo(),
-            Padding(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  CustomButton(
-                    label: "LOGIN",
-                    primaryColor: Colors.white,
-                    secondaryColor: Theme.of(context).primaryColor,
-                    onPressed: () => _loginSheet(context),
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: true,
+        backgroundColor: Theme.of(context).primaryColor,
+        appBar: AppBar(
+          title: Text('Popup Demo'),
+          backgroundColor: Colors.red[400],
+        ),
+        body: Builder(
+          builder: (context) {
+            return Column(
+              children: <Widget>[
+                logo(),
+                Padding(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      CustomButton(
+                        label: "LOGIN",
+                        primaryColor: Colors.white,
+                        secondaryColor: Theme.of(context).primaryColor,
+                        onPressed: () => _loginSheet(context),
+                      ),
+                      SizedBox(height: 20),
+                      CustomButton(
+                        label: "REGISTER",
+                        primaryColor: Theme.of(context).primaryColor,
+                        secondaryColor: Colors.white,
+                        onPressed: () => _registerSheet(context),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 20),
-                  CustomButton(
-                    label: "REGISTER",
-                    primaryColor: Theme.of(context).primaryColor,
-                    secondaryColor: Colors.white,
-                    onPressed: () => _registerSheet(context),
-                  ),
-                ],
-              ),
-              padding: EdgeInsets.only(top: 80, left: 20, right: 20),
-            ),
-            Expanded(
-              child: Align(
-                child: ClipPath(
-                  child: Container(
-                    color: Colors.white,
-                    height: 300,
-                  ),
-                  clipper: BottomWaveClipper(),
+                  padding: EdgeInsets.only(top: 80, left: 20, right: 20),
                 ),
-                alignment: Alignment.bottomCenter,
-              ),
-            )
-          ],
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-        );
-      }),
+                Expanded(
+                  child: Align(
+                    child: ClipPath(
+                      child: Container(
+                        color: Colors.white,
+                        height: 300,
+                      ),
+                      clipper: BottomWaveClipper(),
+                    ),
+                    alignment: Alignment.bottomCenter,
+                  ),
+                )
+              ],
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+            );
+          },
+        ),
+      ),
     );
   }
 }

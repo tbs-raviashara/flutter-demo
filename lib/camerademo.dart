@@ -49,59 +49,61 @@ class _CameraDemoState extends State<CameraDemo> {
   @override
   Widget build(BuildContext context) {
     _width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Upload Image"),
-        backgroundColor: Colors.red[400],
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          child: previewImage(context, _imageFile, _width),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Upload Image"),
+          backgroundColor: Colors.red[400],
         ),
-      ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Container(
-            width: 100.0,
-            height: 50.0,
-            child: FloatingActionButton.extended(
-              backgroundColor: Colors.red[400],
-              label: Text("Camera"),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50)),
-              onPressed: () {
-                onImageButtonPressed("Camera", capturedImageFile: (s) {
-                  setState(() {
-                    _imageFile = s;
-                  });
-                });
-              },
-            ),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: previewImage(context, _imageFile, _width),
           ),
-          Container(
-            width: 100.0,
-            height: 50.0,
-            child: FloatingActionButton.extended(
-              backgroundColor: Colors.red[400],
-              label: Text("Gallery"),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50)),
-              onPressed: () {
-                onImageButtonPressed(
-                  "Gallery",
-                  capturedImageFile: (s) {
+        ),
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              width: 100.0,
+              height: 50.0,
+              child: FloatingActionButton.extended(
+                backgroundColor: Colors.red[400],
+                label: Text("Camera"),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50)),
+                onPressed: () {
+                  onImageButtonPressed("Camera", capturedImageFile: (s) {
                     setState(() {
                       _imageFile = s;
                     });
-                  },
-                );
-              },
+                  });
+                },
+              ),
             ),
-          ),
-        ],
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+            Container(
+              width: 100.0,
+              height: 50.0,
+              child: FloatingActionButton.extended(
+                backgroundColor: Colors.red[400],
+                label: Text("Gallery"),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50)),
+                onPressed: () {
+                  onImageButtonPressed(
+                    "Gallery",
+                    capturedImageFile: (s) {
+                      setState(() {
+                        _imageFile = s;
+                      });
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
+        ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }

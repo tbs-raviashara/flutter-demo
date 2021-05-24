@@ -21,24 +21,26 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Marker Demo'),
-        backgroundColor: Colors.red[400],
-        centerTitle: true,
-      ),
-      body: Container(
-        child: GoogleMap(
-          onMapCreated: _onMapCreated,
-          markers: _createMarker(),
-          initialCameraPosition: CameraPosition(
-            target: _center,
-            zoom: 15.0,
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Marker Demo'),
+          backgroundColor: Colors.red[400],
+          centerTitle: true,
+        ),
+        body: Container(
+          child: GoogleMap(
+            onMapCreated: _onMapCreated,
+            markers: _createMarker(),
+            initialCameraPosition: CameraPosition(
+              target: _center,
+              zoom: 15.0,
+            ),
+            myLocationEnabled: true,
+            zoomGesturesEnabled: true,
+            zoomControlsEnabled: true,
+            myLocationButtonEnabled: true,
           ),
-          myLocationEnabled: true,
-          zoomGesturesEnabled: true,
-          zoomControlsEnabled: true,
-          myLocationButtonEnabled: true,
         ),
       ),
     );

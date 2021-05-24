@@ -65,81 +65,91 @@ class _DeviceInfoState extends State<DeviceInfo> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.red[400],
-        title: Text("Device Details"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                _deviceDetails();
-              },
-              child: Text(
-                "Device Info",
-                style: TextStyle(color: Colors.white),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.red[400],
+          title: Text("Device Details"),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  _deviceDetails();
+                },
+                child: Text(
+                  "Device Info",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-            ),
-            deviceVersion.isNotEmpty &&
-                    deviceName.isNotEmpty &&
-                    identifier.isNotEmpty
-                ? Column(
-                    children: [
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text("Device Name:- " + deviceName,
-                          style: TextStyle(
-                              color: Colors.red, fontWeight: FontWeight.bold)),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text("Device Version:- " + deviceVersion,
-                          style: TextStyle(
-                              color: Colors.red, fontWeight: FontWeight.bold)),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text("Device Identifier:- " + identifier,
-                          style: TextStyle(
-                              color: Colors.red, fontWeight: FontWeight.bold)),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text("Device SDK:- " + sdkInt,
-                          style: TextStyle(
-                              color: Colors.red, fontWeight: FontWeight.bold)),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text("App Name:- " + appName,
-                          style: TextStyle(
-                              color: Colors.red, fontWeight: FontWeight.bold)),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text("App Package :- " + pakageName,
-                          style: TextStyle(
-                              color: Colors.red, fontWeight: FontWeight.bold)),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text("App Version:- " + version,
-                          style: TextStyle(
-                              color: Colors.red, fontWeight: FontWeight.bold)),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text("App Build Version:- " + buildVersion,
-                          style: TextStyle(
-                              color: Colors.red, fontWeight: FontWeight.bold)),
-                    ],
-                  )
-                : Container(),
-          ],
+              deviceVersion.isNotEmpty &&
+                      deviceName.isNotEmpty &&
+                      identifier.isNotEmpty
+                  ? Column(
+                      children: [
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text("Device Name:- " + deviceName,
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold)),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text("Device Version:- " + deviceVersion,
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold)),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text("Device Identifier:- " + identifier,
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold)),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text("Device SDK:- " + sdkInt,
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold)),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text("App Name:- " + appName,
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold)),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text("App Package :- " + pakageName,
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold)),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text("App Version:- " + version,
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold)),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text("App Build Version:- " + buildVersion,
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold)),
+                      ],
+                    )
+                  : Container(),
+            ],
+          ),
         ),
       ),
     );

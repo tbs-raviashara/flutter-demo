@@ -16,7 +16,8 @@ class GroupList extends StatelessWidget {
     Map data = {};
     data = ModalRoute.of(context).settings.arguments;
     print(data);
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
         appBar: AppBar(
             title: Text('Group List'),
             centerTitle: true,
@@ -73,7 +74,9 @@ class GroupList extends StatelessWidget {
               ],
             );
           },
-        ));
+        ),
+      ),
+    );
   }
 
   _showSnackBar(String val) {

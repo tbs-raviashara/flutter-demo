@@ -25,11 +25,12 @@ class _RatingState extends State<Rating> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // backgroundColor: Colors.teal[50],
-      appBar: AppBar(
-          backgroundColor: Colors.red[400], title: Text('Rating Dialog')),
-      body: SmartRefresher(
+    return SafeArea(
+      child: Scaffold(
+        // backgroundColor: Colors.teal[50],
+        appBar: AppBar(
+            backgroundColor: Colors.red[400], title: Text('Rating Dialog')),
+        body: SmartRefresher(
           enablePullDown: true,
           enablePullUp: false,
           header: WaterDropHeader(),
@@ -49,7 +50,9 @@ class _RatingState extends State<Rating> {
                 onPressed: _showRatingAppDialog,
               ),
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 

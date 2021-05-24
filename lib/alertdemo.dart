@@ -15,92 +15,99 @@ class DialogDemo extends StatefulWidget {
 class _DialogDemoState extends State<DialogDemo> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Awesome Dialog'),
-        backgroundColor: Colors.red[400],
-      ),
-      body: Center(
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Awesome Dialog'),
+          backgroundColor: Colors.red[400],
+        ),
+        body: Center(
           child: Container(
-              padding: EdgeInsets.all(16),
-              child: SingleChildScrollView(
-                  child: Column(children: <Widget>[
-                AnimatedButton(
-                    text: 'Info Dialog',
+            padding: EdgeInsets.all(16),
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  AnimatedButton(
+                      text: 'Info Dialog',
+                      pressEvent: () {
+                        infoDialog(context);
+                      }),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  AnimatedButton(
+                    text: 'Warning Dialog',
+                    color: Colors.orange,
                     pressEvent: () {
-                      infoDialog(context);
-                    }),
-                SizedBox(
-                  height: 16,
-                ),
-                AnimatedButton(
-                  text: 'Warning Dialog',
-                  color: Colors.orange,
-                  pressEvent: () {
-                    warningDialog(context);
-                  },
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                AnimatedButton(
-                  text: 'Error Dialog',
-                  color: Colors.red,
-                  pressEvent: () {
-                    errorDialog(context);
-                  },
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                AnimatedButton(
-                  text: 'Succes Dialog',
-                  color: Colors.green,
-                  pressEvent: () {
-                    succesDialog(context);
-                  },
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                AnimatedButton(
-                  text: 'No Header Dialog',
-                  color: Colors.cyan,
-                  pressEvent: () {
-                    noHeaderDialog(context);
-                  },
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                AnimatedButton(
-                  text: 'Custom Body Dialog',
-                  color: Colors.blueGrey,
-                  pressEvent: () {
-                    customBodyDialog(context);
-                  },
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                AnimatedButton(
-                  text: 'Auto Hide Dialog',
-                  color: Colors.purple,
-                  pressEvent: () {
-                    autoHideDialog(context);
-                  },
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                AnimatedButton(
-                  text: 'Body with Input',
-                  color: Colors.blueGrey,
-                  pressEvent: () {
-                    showBodyWithInput(context);
-                  },
-                )
-              ])))),
+                      warningDialog(context);
+                    },
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  AnimatedButton(
+                    text: 'Error Dialog',
+                    color: Colors.red,
+                    pressEvent: () {
+                      errorDialog(context);
+                    },
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  AnimatedButton(
+                    text: 'Succes Dialog',
+                    color: Colors.green,
+                    pressEvent: () {
+                      succesDialog(context);
+                    },
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  AnimatedButton(
+                    text: 'No Header Dialog',
+                    color: Colors.cyan,
+                    pressEvent: () {
+                      noHeaderDialog(context);
+                    },
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  AnimatedButton(
+                    text: 'Custom Body Dialog',
+                    color: Colors.blueGrey,
+                    pressEvent: () {
+                      customBodyDialog(context);
+                    },
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  AnimatedButton(
+                    text: 'Auto Hide Dialog',
+                    color: Colors.purple,
+                    pressEvent: () {
+                      autoHideDialog(context);
+                    },
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  AnimatedButton(
+                    text: 'Body with Input',
+                    color: Colors.blueGrey,
+                    pressEvent: () {
+                      showBodyWithInput(context);
+                    },
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 

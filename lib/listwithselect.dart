@@ -18,28 +18,30 @@ class _ListWithSelectState extends State<ListWithSelect> {
   bool isSelectionMode = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Select Item'),
-        centerTitle: true,
-        backgroundColor: Colors.red[400],
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Select Item'),
+          centerTitle: true,
+          backgroundColor: Colors.red[400],
+        ),
+        body: ListView.builder(
+          itemBuilder: (builder, index) {
+            Map data = staticData[index];
+            selectedFlag[index] = selectedFlag[index] ?? false;
+            bool isSelected = selectedFlag[index];
+            return ListTile(
+              onLongPress: () => onLongPress(isSelected, index),
+              onTap: () => onTap(isSelected, index, data),
+              title: Text("${data['name']}"),
+              subtitle: Text("${data['email']}"),
+              leading: _buildSelectIcon(isSelected, data), // updated
+            );
+          },
+          itemCount: staticData.length,
+        ),
+        floatingActionButton: _buildSelectAllButton(),
       ),
-      body: ListView.builder(
-        itemBuilder: (builder, index) {
-          Map data = staticData[index];
-          selectedFlag[index] = selectedFlag[index] ?? false;
-          bool isSelected = selectedFlag[index];
-          return ListTile(
-            onLongPress: () => onLongPress(isSelected, index),
-            onTap: () => onTap(isSelected, index, data),
-            title: Text("${data['name']}"),
-            subtitle: Text("${data['email']}"),
-            leading: _buildSelectIcon(isSelected, data), // updated
-          );
-        },
-        itemCount: staticData.length,
-      ),
-      floatingActionButton: _buildSelectAllButton(),
     );
   }
 

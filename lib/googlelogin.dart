@@ -12,22 +12,23 @@ class GLogin extends StatelessWidget {
   bool isLogin = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // backgroundColor: Colors.teal[50],
-      appBar:
-          AppBar(backgroundColor: Colors.red[400], title: Text('Google Login')),
-      body: Container(
-        child: Center(
-          child: MaterialButton(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0)),
-            color: Colors.red[400],
-            padding: EdgeInsets.only(left: 30, right: 30),
-            child: Text(
-              isLogin == false ? 'Google Login' : 'Logout',
-              style: TextStyle(color: Colors.white, fontSize: 15),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+            backgroundColor: Colors.red[400], title: Text('Google Login')),
+        body: Container(
+          child: Center(
+            child: MaterialButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0)),
+              color: Colors.red[400],
+              padding: EdgeInsets.only(left: 30, right: 30),
+              child: Text(
+                isLogin == false ? 'Google Login' : 'Logout',
+                style: TextStyle(color: Colors.white, fontSize: 15),
+              ),
+              onPressed: _showRatingAppDialog,
             ),
-            onPressed: _showRatingAppDialog,
           ),
         ),
       ),

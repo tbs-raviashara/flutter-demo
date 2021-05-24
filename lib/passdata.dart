@@ -14,7 +14,8 @@ class PassData extends StatelessWidget {
   Widget build(BuildContext context) {
     // Get previous page data
     data = ModalRoute.of(context).settings.arguments;
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
         appBar: AppBar(
             title: Text('Home'),
             centerTitle: true,
@@ -23,6 +24,8 @@ class PassData extends StatelessWidget {
           child: Text(
               "Name:- ${data['name']} \nEmail:- ${data['email']} \Address:- ${data['address']}",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        ));
+        ),
+      ),
+    );
   }
 }

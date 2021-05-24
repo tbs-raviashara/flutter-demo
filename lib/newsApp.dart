@@ -21,7 +21,8 @@ class _NewsAppState extends State<NewsApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red[400],
           centerTitle: true,
@@ -47,6 +48,8 @@ class _NewsAppState extends State<NewsApp> {
                   )
                 : Center(child: Text('Internet not connected'));
           },
-        ));
+        ),
+      ),
+    );
   }
 }

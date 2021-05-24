@@ -11,35 +11,37 @@ class LiteRolling extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Lite Rolling'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "Do you like Flutter?",
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: LiteRollingSwitch(
-                value: true,
-                textOn: 'Yes',
-                textOff: 'No',
-                colorOn: Colors.green,
-                colorOff: Colors.red[400],
-                iconOn: Icons.check,
-                iconOff: Icons.close,
-                animationDuration: Duration(milliseconds: 500),
-                onChanged: (bool state) {
-                  print('turned ${(state) ? 'yes' : 'no'}');
-                },
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Lite Rolling'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                "Do you like Flutter?",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: LiteRollingSwitch(
+                  value: true,
+                  textOn: 'Yes',
+                  textOff: 'No',
+                  colorOn: Colors.green,
+                  colorOff: Colors.red[400],
+                  iconOn: Icons.check,
+                  iconOff: Icons.close,
+                  animationDuration: Duration(milliseconds: 500),
+                  onChanged: (bool state) {
+                    print('turned ${(state) ? 'yes' : 'no'}');
+                  },
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

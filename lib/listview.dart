@@ -43,37 +43,43 @@ class List extends StatelessWidget {
       'bike',
       'boat'
     ];
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
         backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
         appBar: AppBar(
             title: Text('List'),
             centerTitle: true,
             backgroundColor: Colors.red[400]),
         body: SmartRefresher(
-            enablePullDown: true,
-            enablePullUp: false,
-            header: WaterDropHeader(),
-            controller: _refreshController,
-            onRefresh: _onRefresh,
-            onLoading: _onLoading,
-            child: ListView.builder(
-                itemCount: titles.length,
-                itemBuilder: (context, index) {
-                  String fileName = index % 2 == 0 ? "sun.jpeg" : "moon.jpeg";
-                  return Card(
-                      child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage: AssetImage('assets/images/$fileName'),
-                    ),
-                    title: Text(titles[index]),
-                    subtitle: Text(titles[index]),
-                    onTap: (() => {
-                          print(index),
-                        }),
-                    trailing: Icon(
-                      Icons.keyboard_arrow_right,
-                    ),
-                  ));
-                })));
+          enablePullDown: true,
+          enablePullUp: false,
+          header: WaterDropHeader(),
+          controller: _refreshController,
+          onRefresh: _onRefresh,
+          onLoading: _onLoading,
+          child: ListView.builder(
+            itemCount: titles.length,
+            itemBuilder: (context, index) {
+              String fileName = index % 2 == 0 ? "sun.jpeg" : "moon.jpeg";
+              return Card(
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: AssetImage('assets/images/$fileName'),
+                  ),
+                  title: Text(titles[index]),
+                  subtitle: Text(titles[index]),
+                  onTap: (() => {
+                        print(index),
+                      }),
+                  trailing: Icon(
+                    Icons.keyboard_arrow_right,
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ),
+    );
   }
 }

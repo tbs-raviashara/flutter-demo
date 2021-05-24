@@ -20,40 +20,45 @@ class _QRScanState extends State<QRScan> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
         appBar: AppBar(
           title: Text('Scan Code'),
           backgroundColor: Colors.red[400],
           centerTitle: true,
         ),
-        body: Column(children: <Widget>[
-          Expanded(
-            flex: 4,
-            child: QRView(
-              key: qrKey,
-              onQRViewCreated: _onQRViewCreated,
-              overlay: QrScannerOverlayShape(
-                borderColor: Colors.red,
-                borderRadius: 10,
-                borderLength: 30,
-                borderWidth: 10,
-                // cutOutSize: 400,
+        body: Column(
+          children: <Widget>[
+            Expanded(
+              flex: 4,
+              child: QRView(
+                key: qrKey,
+                onQRViewCreated: _onQRViewCreated,
+                overlay: QrScannerOverlayShape(
+                  borderColor: Colors.red,
+                  borderRadius: 10,
+                  borderLength: 30,
+                  borderWidth: 10,
+                  // cutOutSize: 400,
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Expanded(
-            flex: 1,
-            child: Center(
-              child: (result != null)
-                  ? Text(
-                      'Barcode Type: ${describeEnum(result.format)}   Data: ${result.code}')
-                  : Text('Scan a code'),
+            SizedBox(
+              height: 10,
             ),
-          )
-        ]));
+            Expanded(
+              flex: 1,
+              child: Center(
+                child: (result != null)
+                    ? Text(
+                        'Barcode Type: ${describeEnum(result.format)}   Data: ${result.code}')
+                    : Text('Scan a code'),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 
   void _onQRViewCreated(QRViewController controller) {

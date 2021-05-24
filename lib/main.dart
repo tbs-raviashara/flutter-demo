@@ -8,6 +8,7 @@ import 'package:demo/googlemapdemo.dart';
 import 'package:demo/groupedlist.dart';
 import 'package:demo/home.dart';
 import 'package:demo/inputfield.dart';
+import 'package:demo/jsonDemo.dart';
 import 'package:demo/listview.dart';
 import 'package:demo/listwithselect.dart';
 import 'package:demo/literolling.dart';
@@ -67,6 +68,7 @@ class MyApp extends StatelessWidget {
           '/pin': (context) => PinPutTest(),
           '/input': (context) => InputDemo(),
           '/notification': (context) => LocalNotificationDemo(),
+          '/jsondemo': (context) => JsonDemo(),
         }));
   }
 }

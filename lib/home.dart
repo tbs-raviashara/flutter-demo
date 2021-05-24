@@ -194,6 +194,13 @@ class _HomeState extends State<Home> {
                       'Local Notificcation',
                     ),
                   ),
+                  ElevatedButton(
+                    onPressed: () =>
+                        {Navigator.pushNamed(context, '/jsondemo')},
+                    child: new Text(
+                      'JSON Demo',
+                    ),
+                  ),
                 ]))))));
   }
 

@@ -3,6 +3,9 @@ import 'package:demo/camerademo.dart';
 import 'package:demo/carousellist.dart';
 import 'package:demo/deviceinfo.dart';
 import 'package:demo/featurediscoverydemo.dart';
+import 'package:demo/firebaseInsert.dart';
+import 'package:demo/firebaselogin.dart';
+import 'package:demo/firebaseview.dart';
 import 'package:demo/googlelogin.dart';
 import 'package:demo/googlemapdemo.dart';
 import 'package:demo/groupedlist.dart';
@@ -69,6 +72,9 @@ class MyApp extends StatelessWidget {
           '/input': (context) => InputDemo(),
           '/notification': (context) => LocalNotificationDemo(),
           '/jsondemo': (context) => JsonDemo(),
+          '/firebase': (context) => FirebaseLogin(),
+          '/firebase-insert': (context) => FirebaseInsert(),
+          '/firebase-view': (context) => FirebaseView(),
         }));
   }
 }

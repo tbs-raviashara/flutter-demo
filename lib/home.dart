@@ -35,16 +35,17 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-        onWillPop: () => onBackPress(context),
-        child: SafeArea(
-            child: Scaffold(
-                appBar: AppBar(
-                    title: Text('Home'),
-                    centerTitle: true,
-                    backgroundColor: Colors.red[400]),
-                body: new Center(
-                    child: SingleChildScrollView(
-                        child: Column(children: <Widget>[
+      onWillPop: () => onBackPress(context),
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+              title: Text('Home'),
+              centerTitle: true,
+              backgroundColor: Colors.red[400]),
+          body: new Center(
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
                   ElevatedButton(
                     onPressed: () => {Navigator.pushNamed(context, '/list')},
                     child: new Text(
@@ -201,7 +202,20 @@ class _HomeState extends State<Home> {
                       'JSON Demo',
                     ),
                   ),
-                ]))))));
+                  ElevatedButton(
+                    onPressed: () =>
+                        {Navigator.pushNamed(context, '/firebase')},
+                    child: new Text(
+                      'Firebase CRUD',
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   openUser() async {

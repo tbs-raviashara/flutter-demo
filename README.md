@@ -24,7 +24,7 @@
 - Form with validation
 - Local notification
 - Json data with service and model
-
+- Firebase CRUD
 ## Install
 
 - [Flutter](https://flutter.dev/docs/get-started/install/windows)

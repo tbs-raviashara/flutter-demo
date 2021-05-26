@@ -209,6 +209,13 @@ class _HomeState extends State<Home> {
                       'Firebase CRUD',
                     ),
                   ),
+                  ElevatedButton(
+                    onPressed: () =>
+                        {Navigator.pushNamed(context, '/calendar')},
+                    child: new Text(
+                      'Calendar',
+                    ),
+                  ),
                 ],
               ),
             ),

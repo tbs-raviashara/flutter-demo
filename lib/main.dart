@@ -1,4 +1,5 @@
 import 'package:demo/alertdemo.dart';
+import 'package:demo/calendar.dart';
 import 'package:demo/camerademo.dart';
 import 'package:demo/carousellist.dart';
 import 'package:demo/deviceinfo.dart';
@@ -75,6 +76,7 @@ class MyApp extends StatelessWidget {
           '/firebase': (context) => FirebaseLogin(),
           '/firebase-insert': (context) => FirebaseInsert(),
           '/firebase-view': (context) => FirebaseView(),
+          '/calendar': (context) => Calendar(),
         }));
   }
 }

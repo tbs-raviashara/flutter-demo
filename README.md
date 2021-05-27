@@ -25,6 +25,9 @@
 - Local notification
 - Json data with service and model
 - Firebase CRUD
+- Calendar with events
+- Firebase push notification
+
 ## Install
 
 - [Flutter](https://flutter.dev/docs/get-started/install/windows)

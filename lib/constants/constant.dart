@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
@@ -62,3 +63,15 @@ final passwordValidator = MultiValidator([
   MaxLengthValidator(20,
       errorText: "Password should not be greater than 20 characters!")
 ]);
+
+receivedFirebaseNotofications() {
+  FirebaseMessaging.onMessage.listen((event) {
+    RemoteNotification notification = event.notification;
+    print(notification.toString());
+  });
+
+  FirebaseMessaging.onMessageOpenedApp.listen((event) {
+    RemoteNotification notification = event.notification;
+    print(notification.toString());
+  });
+}

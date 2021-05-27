@@ -1,5 +1,8 @@
 import 'dart:async';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:demo/constants/constant.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -30,6 +33,7 @@ class _SplashAppState extends State<SplashApp> {
   @override
   Widget build(BuildContext context) {
     staticContext = context;
+    Firebase.initializeApp();
     return Scaffold(
       body: Center(child: Image.asset('assets/images/logo.png')),
     );
@@ -37,5 +41,15 @@ class _SplashAppState extends State<SplashApp> {
 
   void nextScreen() {
     Navigator.pushReplacementNamed(staticContext, '/home');
+    getToken();
+  }
+
+  getToken() async {
+    String token;
+    await FirebaseMessaging.instance
+        .getToken()
+        .then((value) => {token = value, print(token)});
+
+    await receivedFirebaseNotofications();
   }
 }

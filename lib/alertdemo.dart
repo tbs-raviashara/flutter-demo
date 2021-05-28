@@ -6,7 +6,6 @@ void main() {
 }
 
 class DialogDemo extends StatefulWidget {
-  DialogDemo({Key key}) : super(key: key);
 
   @override
   _DialogDemoState createState() => _DialogDemoState();

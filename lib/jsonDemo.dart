@@ -32,23 +32,27 @@ class _JsonDemoState extends State<JsonDemo> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-            appBar: AppBar(
-                title: Text(loading ? 'Loading' : 'Users'),
-                backgroundColor: Colors.red[400],
-                centerTitle: true),
-            body: Container(
-                child: ListView.builder(
-                    itemCount: _users == null ? 0 : _users.length,
-                    itemBuilder: (context, index) {
-                      User user = _users[index];
-                      return ListTile(
-                        title: Text(user.name),
-                        subtitle: Text(user.email),
-                        onTap: () {
-                          print(user.toJson());
-                        },
-                      );
-                    }))));
+      child: Scaffold(
+        appBar: AppBar(
+            title: Text(loading ? 'Loading' : 'Users'),
+            backgroundColor: Colors.red[400],
+            centerTitle: true),
+        body: Container(
+          child: ListView.builder(
+            itemCount: _users == null ? 0 : _users.length,
+            itemBuilder: (context, index) {
+              User user = _users[index];
+              return ListTile(
+                title: Text(user.name),
+                subtitle: Text(user.email),
+                onTap: () {
+                  print(user.toJson());
+                },
+              );
+            },
+          ),
+        ),
+      ),
+    );
   }
 }

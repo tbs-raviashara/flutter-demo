@@ -35,9 +35,6 @@ class _LocalNotificationDemoState extends State<LocalNotificationDemo> {
             iOS: initializationSettingsIOS);
     flutterLocalNotificationsPlugin.initialize(initializationSettings,
         onSelectNotification: onSelectNotification);
-    // tz.initializeTimeZones();
-    // var locations = tz.timeZoneDatabase.locations;
-    // tz.setLocalLocation(tz.getLocation("India"));
     tz.initializeTimeZones();
   }
 
@@ -57,7 +54,6 @@ class _LocalNotificationDemoState extends State<LocalNotificationDemo> {
   }
 
   showSchedulrNotification() async {
-    // DateTime offsetTime = DateTime.now().add(const Duration(seconds: 20));
     var android = AndroidNotificationDetails('id', 'channel ', 'description',
         priority: Priority.high, importance: Importance.max);
     var iOS = IOSNotificationDetails();

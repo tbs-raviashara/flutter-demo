@@ -2,7 +2,7 @@ import 'package:demo/components/clipper.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: PopupDesign()));
+  runApp(MaterialApp(home: PopupDesign()));
 }
 
 class PopupDesign extends StatefulWidget {

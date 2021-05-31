@@ -27,6 +27,7 @@ import 'package:demo/second.dart';
 import 'package:demo/servicrs/checknetwork_service.dart';
 import 'package:demo/splashscreen.dart';
 import 'package:demo/storyview.dart';
+import 'package:demo/widgetlifecycle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -78,6 +79,7 @@ class MyApp extends StatelessWidget {
           '/firebase-insert': (context) => FirebaseInsert(),
           '/firebase-view': (context) => FirebaseView(),
           '/calendar': (context) => Calendar(),
+          '/widget-lifecycle': (context) => WidgetLifeCycle(),
         }));
   }
 }

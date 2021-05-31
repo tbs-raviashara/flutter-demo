@@ -47,6 +47,13 @@ class _HomeState extends State<Home> {
               child: Column(
                 children: <Widget>[
                   ElevatedButton(
+                    onPressed: () =>
+                        {Navigator.pushNamed(context, '/widget-lifecycle')},
+                    child: new Text(
+                      'Widget Lifecycle',
+                    ),
+                  ),
+                  ElevatedButton(
                     onPressed: () => {Navigator.pushNamed(context, '/list')},
                     child: new Text(
                       'List View With Pull To Refresh',

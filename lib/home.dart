@@ -223,6 +223,13 @@ class _HomeState extends State<Home> {
                       'Calendar',
                     ),
                   ),
+                  ElevatedButton(
+                    onPressed: () =>
+                        {Navigator.pushNamed(context, '/change-theme')},
+                    child: new Text(
+                      'Change Theme',
+                    ),
+                  ),
                 ],
               ),
             ),

@@ -2,6 +2,7 @@ import 'package:demo/alertdemo.dart';
 import 'package:demo/calendar.dart';
 import 'package:demo/camerademo.dart';
 import 'package:demo/carousellist.dart';
+import 'package:demo/changetheme.dart';
 import 'package:demo/deviceinfo.dart';
 import 'package:demo/featurediscoverydemo.dart';
 import 'package:demo/firebaseInsert.dart';
@@ -30,6 +31,7 @@ import 'package:demo/storyview.dart';
 import 'package:demo/widgetlifecycle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -47,10 +49,13 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return (MaterialApp(
+    return (GetMaterialApp(
         debugShowCheckedModeBanner: false,
         home: SplashApp(),
         navigatorKey: ConnectivityService().navigatorKey,
+        theme: ThemeData.light().copyWith(primaryColor: Colors.red),
+        darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.red),
+        themeMode: ThemeMode.system,
         routes: {
           '/home': (context) => Home(),
           '/second': (context) => Second(),
@@ -80,6 +85,7 @@ class MyApp extends StatelessWidget {
           '/firebase-view': (context) => FirebaseView(),
           '/calendar': (context) => Calendar(),
           '/widget-lifecycle': (context) => WidgetLifeCycle(),
+          '/change-theme': (context) => ChangeTheme(),
         }));
   }
 }

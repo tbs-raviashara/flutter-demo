@@ -27,6 +27,8 @@
 - Firebase CRUD
 - Calendar with events
 - Firebase push notification
+- Widget lifecycle
+- Change theme
 
 ## Install
 

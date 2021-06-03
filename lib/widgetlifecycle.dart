@@ -12,6 +12,7 @@ class WidgetLifeCycle extends StatefulWidget {
 }
 
 class _WidgetLifeCycleState extends State<WidgetLifeCycle> {
+  // ignore: todo
   // TODO! call 'initState' on page entered
   @override
   void initState() {
@@ -19,6 +20,7 @@ class _WidgetLifeCycleState extends State<WidgetLifeCycle> {
     print('Widget Lifecycle: initState');
   }
 
+  // ignore: todo
   // TODO! call 'didChangeDependencies' on page entered
   @override
   void didChangeDependencies() {
@@ -32,6 +34,7 @@ class _WidgetLifeCycleState extends State<WidgetLifeCycle> {
     print('Widget Lifecycle: didUpdateWidget');
   }
 
+  // ignore: todo
   // TODO! call 'deactivate' on page leave
   @override
   void deactivate() {
@@ -39,6 +42,7 @@ class _WidgetLifeCycleState extends State<WidgetLifeCycle> {
     super.deactivate();
   }
 
+  // ignore: todo
   // TODO! call 'dispose' on page leave
   @override
   void dispose() {

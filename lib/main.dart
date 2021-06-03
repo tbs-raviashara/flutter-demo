@@ -19,6 +19,7 @@ import 'package:demo/listwithselect.dart';
 import 'package:demo/literolling.dart';
 import 'package:demo/localnotification.dart';
 import 'package:demo/newsApp.dart';
+import 'package:demo/paginationdemo.dart';
 import 'package:demo/passdata.dart';
 import 'package:demo/pinput.dart';
 import 'package:demo/popupdesign.dart';
@@ -86,6 +87,7 @@ class MyApp extends StatelessWidget {
           '/calendar': (context) => Calendar(),
           '/widget-lifecycle': (context) => WidgetLifeCycle(),
           '/change-theme': (context) => ChangeTheme(),
+          '/pagination': (context) => PaginationDemo(),
         }));
   }
 }

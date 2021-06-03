@@ -230,6 +230,13 @@ class _HomeState extends State<Home> {
                       'Change Theme',
                     ),
                   ),
+                  ElevatedButton(
+                    onPressed: () =>
+                        {Navigator.pushNamed(context, '/pagination')},
+                    child: new Text(
+                      'Pagination',
+                    ),
+                  ),
                 ],
               ),
             ),

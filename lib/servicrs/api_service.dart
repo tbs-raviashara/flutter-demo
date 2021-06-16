@@ -35,4 +35,18 @@ class ApiService {
       return [];
     }
   }
+
+  static Future sendUser(Map data) async {
+    try {
+      String body = json.encode(data);
+      final response = await http.post(
+        Uri.https(userUrl, '/users'),
+        headers: {"Content-Type": "application/json"},
+        body: body,
+      );
+
+      if (200 == response.statusCode) {
+      } else {}
+    } catch (e) {}
+  }
 }

@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:demo/constants/constant.dart';
 import 'package:demo/model/article_model.dart';
 import 'package:demo/model/users.dart';
 import 'package:demo/servicrs/api_exception.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
@@ -28,13 +30,14 @@ class ApiService {
     try {
       final response = await http.get(Uri.https(userUrl, '/users'));
       if (200 == response.statusCode) {
-        final List<User> users = _returnResponse(response);
+        final List<User> users = usersFromJson(_returnResponse(response));
         return users;
       } else {
         return [];
       }
     } on SocketException {
-      print('No Internet');
+      showToast("No Internet connection", "LENGTH_LONG", "TOP", Colors.black,
+          Colors.white, 16.0);
       throw FetchDataException('No Internet connection');
     }
   }
@@ -58,12 +61,23 @@ class ApiService {
       case 200:
         return response.body;
       case 400:
+        showToast(response.body.toString(), "LENGTH_LONG", "TOP", Colors.black,
+            Colors.white, 16.0);
         throw BadRequestException(response.body.toString());
       case 401:
       case 403:
+        showToast(response.body.toString(), "LENGTH_LONG", "TOP", Colors.black,
+            Colors.white, 16.0);
         throw UnauthorisedException(response.body.toString());
       case 500:
       default:
+        showToast(
+            'Error occured while Communication with Server with StatusCode : ${response.statusCode}',
+            "LENGTH_LONG",
+            "TOP",
+            Colors.black,
+            Colors.white,
+            16.0);
         throw FetchDataException(
             'Error occured while Communication with Server with StatusCode : ${response.statusCode}');
     }

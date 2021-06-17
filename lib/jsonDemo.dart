@@ -25,6 +25,11 @@ class _JsonDemoState extends State<JsonDemo> {
         _users = value;
         loading = false;
       });
+    }).onError((error, stackTrace) {
+      setState(() {
+        loading = false;
+        _users = null;
+      });
     });
   }
 

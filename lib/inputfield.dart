@@ -40,7 +40,7 @@ class _InputDemoState extends State<InputDemo> {
                         child: Center(
                             child: Column(children: <Widget>[
                           TextFormField(
-                            validator: nameValidator,
+                            validator: nameValidation('First Name'),
                             autofocus: true,
                             controller: firstNameController,
                             decoration: InputDecoration(
@@ -54,7 +54,7 @@ class _InputDemoState extends State<InputDemo> {
                           ),
                           SizedBox(height: 15),
                           TextFormField(
-                              validator: emailValidator,
+                              validator: emailValidation('Email'),
                               autofocus: true,
                               controller: emailController,
                               decoration: InputDecoration(
@@ -119,7 +119,7 @@ class _InputDemoState extends State<InputDemo> {
                           ]),
                           SizedBox(height: 15),
                           TextFormField(
-                            validator: mobileValidator,
+                            validator: mobileValidation('Contact Number'),
                             autofocus: true,
                             controller: cnoController,
                             keyboardType: TextInputType.number,
@@ -133,7 +133,7 @@ class _InputDemoState extends State<InputDemo> {
                                     FloatingLabelBehavior.auto,
                                 border: OutlineInputBorder(),
                                 labelText: 'Contact Number',
-                                hintText: 'Enter Contact nNumber'),
+                                hintText: 'Enter Contact Number'),
                             maxLength: 10,
                             obscureText: false,
                             style:
@@ -142,7 +142,7 @@ class _InputDemoState extends State<InputDemo> {
                           ),
                           SizedBox(height: 15),
                           TextFormField(
-                            validator: requiredValidator,
+                            validator: onlyRequireValidation('Web URL'),
                             autofocus: true,
                             controller: weburlController,
                             decoration: InputDecoration(
@@ -159,7 +159,7 @@ class _InputDemoState extends State<InputDemo> {
                           ),
                           SizedBox(height: 15),
                           TextFormField(
-                              validator: requiredValidator,
+                              validator: onlyRequireValidation('Address'),
                               autofocus: true,
                               controller: addressController,
                               decoration: InputDecoration(
@@ -176,7 +176,7 @@ class _InputDemoState extends State<InputDemo> {
                               textInputAction: TextInputAction.newline),
                           SizedBox(height: 15),
                           TextFormField(
-                              validator: passwordValidator,
+                              validator: passwordValidation('Password'),
                               autofocus: true,
                               controller: passwordController,
                               decoration: InputDecoration(

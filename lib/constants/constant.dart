@@ -40,29 +40,41 @@ void showToast(String message, String length, String gravity, backgroundColor,
       fontSize: fontSize);
 }
 
-final nameValidator = MultiValidator([
-  RequiredValidator(errorText: "Name is required!"),
-  MinLengthValidator(3, errorText: "Name should be atleast 3 characters!")
-]);
+nameValidation(String fieldName) {
+  return MultiValidator([
+    RequiredValidator(errorText: "$fieldName is required!"),
+    MinLengthValidator(3,
+        errorText: "$fieldName should be atleast 3 characters!")
+  ]);
+}
 
-final emailValidator = MultiValidator([
-  RequiredValidator(errorText: "Email is required!"),
-  EmailValidator(errorText: "Enter a valid email address!")
-]);
+emailValidation(String fieldName) {
+  return MultiValidator([
+    RequiredValidator(errorText: "$fieldName is required!"),
+    EmailValidator(errorText: "Enter a valid $fieldName!")
+  ]);
+}
 
-final mobileValidator = MultiValidator([
-  RequiredValidator(errorText: "Contact Number is required!"),
-  MinLengthValidator(10, errorText: "Enter valid mobile number!")
-]);
+mobileValidation(String fieldName) {
+  return MultiValidator([
+    RequiredValidator(errorText: "$fieldName is required!"),
+    MinLengthValidator(10, errorText: "Enter valid $fieldName!")
+  ]);
+}
 
-final requiredValidator = RequiredValidator(errorText: "Web url is required!");
+onlyRequireValidation(String fieldName) {
+  return RequiredValidator(errorText: "$fieldName is required!");
+}
 
-final passwordValidator = MultiValidator([
-  RequiredValidator(errorText: "Password is required!"),
-  MinLengthValidator(6, errorText: "Password should be atleast 6 characters!"),
-  MaxLengthValidator(20,
-      errorText: "Password should not be greater than 20 characters!")
-]);
+passwordValidation(String fieldName) {
+  MultiValidator([
+    RequiredValidator(errorText: "$fieldName is required!"),
+    MinLengthValidator(6,
+        errorText: "$fieldName should be atleast 6 characters!"),
+    MaxLengthValidator(20,
+        errorText: "$fieldName should not be greater than 20 characters!")
+  ]);
+}
 
 receivedFirebaseNotofications() {
   FirebaseMessaging.onMessage.listen((event) {

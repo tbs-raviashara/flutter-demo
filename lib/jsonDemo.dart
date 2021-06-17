@@ -18,7 +18,6 @@ class _JsonDemoState extends State<JsonDemo> {
   bool loading = false;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     loading = true;
     ApiService.getUsers().then((value) {

@@ -66,7 +66,7 @@ class _PinPutTestState extends State<PinPutTest> {
   }
 
   void _showSnackBar(String pin, BuildContext context) {
-    final snackBar = SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       duration: const Duration(seconds: 3),
       content: Container(
         height: 80.0,
@@ -78,10 +78,7 @@ class _PinPutTestState extends State<PinPutTest> {
         ),
       ),
       backgroundColor: Colors.red[400],
-    );
-    Scaffold.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(snackBar);
+    ));
 
     _pinPutFocusNode.unfocus();
   }

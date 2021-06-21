@@ -237,6 +237,13 @@ class _HomeState extends State<Home> {
                       'Pagination',
                     ),
                   ),
+                  ElevatedButton(
+                    onPressed: () =>
+                        {Navigator.pushNamed(context, '/nutrition')},
+                    child: new Text(
+                      'Nutrition App',
+                    ),
+                  ),
                 ],
               ),
             ),

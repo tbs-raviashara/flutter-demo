@@ -1,3 +1,4 @@
+import 'package:demo/components/stats_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:unicorndial/unicorndial.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -293,6 +294,7 @@ class _HomeState extends State<Home> {
                       'Nutrition App',
                     ),
                   ),
+                  StatsGrid(),
                 ],
               ),
             ),

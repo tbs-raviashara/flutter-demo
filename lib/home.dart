@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unicorndial/unicorndial.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
@@ -34,6 +35,54 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: deprecated_member_use
+    final floatingButtons = List<UnicornButton>();
+    floatingButtons.add(
+      UnicornButton(
+        hasLabel: true,
+        labelText: "Attachment",
+        currentButton: FloatingActionButton(
+          heroTag: "attachment",
+          backgroundColor: Colors.black,
+          mini: true,
+          child: Icon(Icons.attach_file),
+          onPressed: () {
+            print('Attachment FAB clicked');
+          },
+        ),
+      ),
+    );
+    floatingButtons.add(
+      UnicornButton(
+        hasLabel: true,
+        labelText: "Camera",
+        currentButton: FloatingActionButton(
+          onPressed: () {
+            print('Camera FAB clicked');
+          },
+          heroTag: "camera",
+          backgroundColor: Colors.black,
+          mini: true,
+          child: Icon(Icons.photo_camera),
+        ),
+      ),
+    );
+    floatingButtons.add(
+      UnicornButton(
+        hasLabel: true,
+        labelText: "Create Note",
+        currentButton: FloatingActionButton(
+          onPressed: () {
+            print('Note FAB clicked');
+          },
+          heroTag: "note",
+          backgroundColor: Colors.black,
+          mini: true,
+          child: Icon(Icons.note_add),
+        ),
+      ),
+    );
+
     return WillPopScope(
       onWillPop: () => onBackPress(context),
       child: SafeArea(
@@ -248,6 +297,12 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
+          floatingActionButton: UnicornDialer(
+              backgroundColor: Colors.black38,
+              parentButtonBackground: Colors.red,
+              orientation: UnicornOrientation.VERTICAL,
+              parentButton: Icon(Icons.keyboard_arrow_up_rounded),
+              childButtons: floatingButtons),
         ),
       ),
     );

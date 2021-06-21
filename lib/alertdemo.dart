@@ -6,7 +6,6 @@ void main() {
 }
 
 class DialogDemo extends StatefulWidget {
-
   @override
   _DialogDemoState createState() => _DialogDemoState();
 }
@@ -166,7 +165,7 @@ class _DialogDemoState extends State<DialogDemo> {
             AnimatedButton(
                 text: 'Close',
                 pressEvent: () {
-                  dialog.dissmiss();
+                  dialog.dismiss();
                 })
           ],
         ),
@@ -222,20 +221,17 @@ class _DialogDemoState extends State<DialogDemo> {
 
   succesDialog(context) {
     AwesomeDialog(
-        context: context,
-        animType: AnimType.LEFTSLIDE,
-        headerAnimationLoop: false,
-        dialogType: DialogType.SUCCES,
-        title: 'Succes',
-        desc: 'Dialog description here',
-        btnOkOnPress: () {
-          debugPrint('OnClcik');
-        },
-        btnOkIcon: Icons.check_circle,
-        onDissmissCallback: () {
-          debugPrint('Dialog Dissmiss from callback');
-        })
-      ..show();
+      context: context,
+      animType: AnimType.LEFTSLIDE,
+      headerAnimationLoop: false,
+      dialogType: DialogType.SUCCES,
+      title: 'Succes',
+      desc: 'Dialog description here',
+      btnOkOnPress: () {
+        debugPrint('OnClcik');
+      },
+      btnOkIcon: Icons.check_circle,
+    )..show();
   }
 
   errorDialog(context) {
@@ -269,24 +265,21 @@ class _DialogDemoState extends State<DialogDemo> {
 
   infoDialog(context) {
     AwesomeDialog(
-        context: context,
-        dialogType: DialogType.INFO,
-        borderSide: BorderSide(color: Colors.red, width: 2),
-        buttonsBorderRadius: BorderRadius.all(Radius.circular(2)),
-        headerAnimationLoop: false,
-        animType: AnimType.TOPSLIDE,
-        title: 'INFO',
-        desc: 'Dialog description here...',
-        showCloseIcon: true,
-        btnCancelOnPress: () {
-          print('btnCancelOnPress');
-        },
-        btnOkOnPress: () {
-          print('btnOkOnPress');
-        },
-        onDissmissCallback: () {
-          print('onDissmissCallback');
-        })
-      ..show();
+      context: context,
+      dialogType: DialogType.INFO,
+      borderSide: BorderSide(color: Colors.red, width: 2),
+      buttonsBorderRadius: BorderRadius.all(Radius.circular(2)),
+      headerAnimationLoop: false,
+      animType: AnimType.TOPSLIDE,
+      title: 'INFO',
+      desc: 'Dialog description here...',
+      showCloseIcon: true,
+      btnCancelOnPress: () {
+        print('btnCancelOnPress');
+      },
+      btnOkOnPress: () {
+        print('btnOkOnPress');
+      },
+    )..show();
   }
 }

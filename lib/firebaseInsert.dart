@@ -18,7 +18,6 @@ class _FirebaseInsertState extends State<FirebaseInsert> {
   Map data = {};
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 

@@ -35,7 +35,7 @@ dependencies:
   story_view:
   lite_rolling_switch:
   rating_dialog:
-  feature_discovery:
+  # feature_discovery:
   google_sign_in:
   device_info:
   package_info:

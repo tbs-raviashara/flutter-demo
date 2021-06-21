@@ -91,12 +91,12 @@ class _HomeState extends State<Home> {
                       'Story View',
                     ),
                   ),
-                  ElevatedButton(
+                  /*ElevatedButton(
                     onPressed: () => {Navigator.pushNamed(context, '/feature')},
                     child: new Text(
                       'Feature Discovery',
                     ),
-                  ),
+                  ),*/
                   ElevatedButton(
                     onPressed: () =>
                         {Navigator.pushNamed(context, '/google-login')},

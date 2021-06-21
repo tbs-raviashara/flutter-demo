@@ -4,7 +4,7 @@ import 'package:demo/camerademo.dart';
 import 'package:demo/carousellist.dart';
 import 'package:demo/changetheme.dart';
 import 'package:demo/deviceinfo.dart';
-import 'package:demo/featurediscoverydemo.dart';
+// import 'package:demo/featurediscoverydemo.dart';
 import 'package:demo/firebaseInsert.dart';
 import 'package:demo/firebaselogin.dart';
 import 'package:demo/firebaseview.dart';
@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
           '/story': (context) => Story(),
           '/lite-roling': (context) => LiteRolling(),
           '/rating': (context) => Rating(),
-          '/feature': (context) => FeatureDiscoveryDemo(),
+          // '/feature': (context) => FeatureDiscoveryDemo(),
           '/list': (context) => List(),
           '/group-list': (context) => GroupList(),
           '/google-login': (context) => GLogin(),

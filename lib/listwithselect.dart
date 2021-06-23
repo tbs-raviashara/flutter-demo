@@ -40,12 +40,12 @@ class _ListWithSelectState extends State<ListWithSelect> {
           },
           itemCount: staticData.length,
         ),
-        floatingActionButton: _buildSelectAllButton(),
+        floatingActionButton: buildSelectAllButton(),
       ),
     );
   }
 
-  Widget _buildSelectAllButton() {
+  Widget buildSelectAllButton() {
     // The button will be visible when the selectionMode is enabled.
     if (isSelectionMode) {
       bool isFalseAvailable = selectedFlag

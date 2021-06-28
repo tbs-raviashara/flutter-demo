@@ -327,6 +327,13 @@ class _HomeState extends State<Home> {
                           'Nutrition App',
                         ),
                       ),
+                      ElevatedButton(
+                        onPressed: () =>
+                            {Navigator.pushNamed(context, '/cookie-store')},
+                        child: new Text(
+                          'Cookie Store',
+                        ),
+                      ),
                       StatsGrid(),
                     ],
                   ),

@@ -19,6 +19,7 @@ import 'package:demo/listwithselect.dart';
 import 'package:demo/literolling.dart';
 import 'package:demo/localnotification.dart';
 import 'package:demo/newsApp.dart';
+import 'package:demo/nutritionapp.dart';
 import 'package:demo/paginationdemo.dart';
 import 'package:demo/passdata.dart';
 import 'package:demo/pinput.dart';
@@ -51,43 +52,45 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return (GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: SplashApp(),
-        navigatorKey: ConnectivityService().navigatorKey,
-        theme: ThemeData.light().copyWith(primaryColor: Colors.red),
-        darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.red),
-        themeMode: ThemeMode.system,
-        routes: {
-          '/home': (context) => Home(),
-          '/second': (context) => Second(),
-          '/story': (context) => Story(),
-          '/lite-roling': (context) => LiteRolling(),
-          '/rating': (context) => Rating(),
-          // '/feature': (context) => FeatureDiscoveryDemo(),
-          '/list': (context) => List(),
-          '/group-list': (context) => GroupList(),
-          '/google-login': (context) => GLogin(),
-          '/pass-data': (context) => PassData(),
-          '/device-info': (context) => DeviceInfo(),
-          '/carouser-list': (context) => CarouserListDemo(),
-          '/google-map': (context) => GoogleMapScreen(),
-          '/news': (context) => NewsApp(),
-          '/camera': (context) => CameraDemo(),
-          '/dialog': (context) => DialogDemo(),
-          '/popup-design': (context) => PopupDesign(),
-          '/list-select': (context) => ListWithSelect(),
-          '/scan': (context) => QRScan(),
-          '/pin': (context) => PinPutTest(),
-          '/input': (context) => InputDemo(),
-          '/notification': (context) => LocalNotificationDemo(),
-          '/jsondemo': (context) => JsonDemo(),
-          '/firebase': (context) => FirebaseLogin(),
-          '/firebase-insert': (context) => FirebaseInsert(),
-          '/firebase-view': (context) => FirebaseView(),
-          '/calendar': (context) => Calendar(),
-          '/widget-lifecycle': (context) => WidgetLifeCycle(),
-          '/change-theme': (context) => ChangeTheme(),
-          '/pagination': (context) => PaginationDemo(),
-        }));
+      debugShowCheckedModeBanner: false,
+      home: SplashApp(),
+      navigatorKey: ConnectivityService().navigatorKey,
+      theme: ThemeData.light().copyWith(primaryColor: Colors.red),
+      darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.red),
+      themeMode: ThemeMode.system,
+      routes: {
+        '/home': (context) => Home(),
+        '/second': (context) => Second(),
+        '/story': (context) => Story(),
+        '/lite-roling': (context) => LiteRolling(),
+        '/rating': (context) => Rating(),
+        // '/feature': (context) => FeatureDiscoveryDemo(),
+        '/list': (context) => List(),
+        '/group-list': (context) => GroupList(),
+        '/google-login': (context) => GLogin(),
+        '/pass-data': (context) => PassData(),
+        '/device-info': (context) => DeviceInfo(),
+        '/carouser-list': (context) => CarouserListDemo(),
+        '/google-map': (context) => GoogleMapScreen(),
+        '/news': (context) => NewsApp(),
+        '/camera': (context) => CameraDemo(),
+        '/dialog': (context) => DialogDemo(),
+        '/popup-design': (context) => PopupDesign(),
+        '/list-select': (context) => ListWithSelect(),
+        '/scan': (context) => QRScan(),
+        '/pin': (context) => PinPutTest(),
+        '/input': (context) => InputDemo(),
+        '/notification': (context) => LocalNotificationDemo(),
+        '/jsondemo': (context) => JsonDemo(),
+        '/firebase': (context) => FirebaseLogin(),
+        '/firebase-insert': (context) => FirebaseInsert(),
+        '/firebase-view': (context) => FirebaseView(),
+        '/calendar': (context) => Calendar(),
+        '/widget-lifecycle': (context) => WidgetLifeCycle(),
+        '/change-theme': (context) => ChangeTheme(),
+        '/pagination': (context) => PaginationDemo(),
+        '/nutrition': (context) => NutritionApp(),
+      },
+    ));
   }
 }

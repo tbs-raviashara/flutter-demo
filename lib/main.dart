@@ -3,7 +3,9 @@ import 'package:demo/calendar.dart';
 import 'package:demo/camerademo.dart';
 import 'package:demo/carousellist.dart';
 import 'package:demo/changetheme.dart';
+import 'package:demo/cookie_store.dart';
 import 'package:demo/deviceinfo.dart';
+import 'package:demo/expansion_tile_card_demo.dart';
 // import 'package:demo/featurediscoverydemo.dart';
 import 'package:demo/firebaseInsert.dart';
 import 'package:demo/firebaselogin.dart';
@@ -90,6 +92,8 @@ class MyApp extends StatelessWidget {
         '/change-theme': (context) => ChangeTheme(),
         '/pagination': (context) => PaginationDemo(),
         '/nutrition': (context) => NutritionApp(),
+        '/cookie-store': (context) => CookieStore(),
+        '/expansion-tile-demo': (context) => ExpansionListCard(),
       },
     ));
   }

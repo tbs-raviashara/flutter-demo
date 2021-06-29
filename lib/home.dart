@@ -334,6 +334,14 @@ class _HomeState extends State<Home> {
                           'Cookie Store',
                         ),
                       ),
+                      ElevatedButton(
+                        onPressed: () => {
+                          Navigator.pushNamed(context, '/expansion-tile-demo')
+                        },
+                        child: new Text(
+                          'Expansion Card',
+                        ),
+                      ),
                       StatsGrid(),
                     ],
                   ),

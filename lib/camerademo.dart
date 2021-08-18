@@ -25,7 +25,12 @@ class _CameraDemoState extends State<CameraDemo> {
 
     final pickedFile = await _picker.getImage(
       source: source == 'Camera' ? ImageSource.camera : ImageSource.gallery,
+      preferredCameraDevice: CameraDevice.front
     );
+    // print(pickedFile.path);
+    // final bytes = File(pickedFile.path).readAsBytesSync();
+    // String _img64 = base64Encode(bytes);
+    // debugPrint(_img64);
 
     val = await ImageCropper.cropImage(
       sourcePath: pickedFile.path,

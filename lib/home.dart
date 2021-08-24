@@ -108,8 +108,7 @@ class _HomeState extends State<Home> {
 
     return WillPopScope(
       onWillPop: () => onBackPress(context),
-      child: SafeArea(
-        child: Scaffold(
+      child: Scaffold(
           appBar: AppBar(
               title: Text('Home'),
               centerTitle: true,
@@ -355,7 +354,6 @@ class _HomeState extends State<Home> {
               parentButton: Icon(Icons.keyboard_arrow_up_rounded),
               childButtons: floatingButtons),
         ),
-      ),
     );
   }
 

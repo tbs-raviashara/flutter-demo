@@ -23,12 +23,8 @@ jobs:
       with:
         flutter-version: '2.2.2'
     - run: flutter pub get
-    # Build apk.
-    - run: flutter build apk --split-per-abi --no-sound-null-safety
-    # This action will create a github release and optionally upload an artifact to it.
-    # https://github.com/ncipollo/release-action
-    - name: Create a Release APK
-      uses: ncipollo/release-action@v1
+    - run: flutter build apk --debug
+    - uses: ncipollo/release-action@v1
       with:
-          artifacts: "build/app/outputs/apk/debug/*.apk,build/macos/Build/Products/Release/*.app"
-          token: ${{ secrets.GITHUB_TOKEN }}
+       artifacts: "build/app/outputs/apk/debug/*.apk"
+       token: $

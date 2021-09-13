@@ -29,9 +29,10 @@ import 'package:demo/popupdesign.dart';
 import 'package:demo/qrscan.dart';
 import 'package:demo/rating.dart';
 import 'package:demo/second.dart';
-import 'package:demo/servicrs/checknetwork_service.dart';
+import 'package:demo/services/checknetwork_service.dart';
 import 'package:demo/splashscreen.dart';
 import 'package:demo/storyview.dart';
+import 'package:demo/ui_challenge_1.dart';
 import 'package:demo/widgetlifecycle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -94,6 +95,7 @@ class MyApp extends StatelessWidget {
         '/nutrition': (context) => NutritionApp(),
         '/cookie-store': (context) => CookieStore(),
         '/expansion-tile-demo': (context) => ExpansionListCard(),
+        '/ui-challenge-1': (context) => UiChallenge1(),
       },
     ));
   }

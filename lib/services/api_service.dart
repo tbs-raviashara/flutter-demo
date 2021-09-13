@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:demo/constants/constant.dart';
 import 'package:demo/model/article_model.dart';
 import 'package:demo/model/users.dart';
-import 'package:demo/servicrs/api_exception.dart';
+import 'package:demo/services/api_exception.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 

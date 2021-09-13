@@ -1,7 +1,7 @@
 import 'package:demo/components/customListTile.dart';
 import 'package:demo/constants/constant.dart';
 import 'package:demo/model/article_model.dart';
-import 'package:demo/servicrs/api_service.dart';
+import 'package:demo/services/api_service.dart';
 import 'package:flutter/material.dart';
 
 void main() {

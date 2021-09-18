@@ -13,13 +13,13 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '8.x'
-      - uses: subosito/flutter-action@v1
+      - name: building apk 
+        uses: subosito/flutter-action@v1
         with:
           flutter-version: '2.2.2'
-      - name: loading packages 
+        # getting packages
       - run: flutter pub get
-      # Building apk
-      - name: building apk 
+        # Building apk
       - run: flutter build apk --split-per-abi --no-sound-null-safety
 
       - name: Bump version and push tag

@@ -4,6 +4,7 @@ import 'package:demo/camerademo.dart';
 import 'package:demo/carousellist.dart';
 import 'package:demo/changetheme.dart';
 import 'package:demo/cookie_store.dart';
+import 'package:demo/dashboard.dart';
 import 'package:demo/deviceinfo.dart';
 import 'package:demo/expansion_tile_card_demo.dart';
 // import 'package:demo/featurediscoverydemo.dart';
@@ -96,6 +97,7 @@ class MyApp extends StatelessWidget {
         '/cookie-store': (context) => CookieStore(),
         '/expansion-tile-demo': (context) => ExpansionListCard(),
         '/ui-challenge-1': (context) => UiChallenge1(),
+        '/dashboard': (context) => Dashboard(),
       },
     ));
   }

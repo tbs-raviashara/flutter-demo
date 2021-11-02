@@ -7,6 +7,7 @@ import 'package:demo/cookie_store.dart';
 import 'package:demo/dashboard.dart';
 import 'package:demo/deviceinfo.dart';
 import 'package:demo/expansion_tile_card_demo.dart';
+import 'package:demo/file_structure.dart';
 // import 'package:demo/featurediscoverydemo.dart';
 import 'package:demo/firebaseInsert.dart';
 import 'package:demo/firebaselogin.dart';
@@ -98,6 +99,7 @@ class MyApp extends StatelessWidget {
         '/expansion-tile-demo': (context) => ExpansionListCard(),
         '/ui-challenge-1': (context) => UiChallenge1(),
         '/dashboard': (context) => Dashboard(),
+        '/file-structure': (context) => FileStructure(),
       },
     ));
   }

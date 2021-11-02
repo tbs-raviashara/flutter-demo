@@ -2,6 +2,7 @@
 
 - List view with pull to refresh
 - Dashboard With Grid
+- Create Storage Directory
 - Lite rolling
 - Group list
 - Slidable list

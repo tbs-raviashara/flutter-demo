@@ -120,6 +120,20 @@ class _HomeState extends State<Home> {
                   children: <Widget>[
                     ElevatedButton(
                       onPressed: () =>
+                          {Navigator.pushNamed(context, '/file-structure')},
+                      child: new Text(
+                        'File Structure',
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () =>
+                          {Navigator.pushNamed(context, '/dashboard')},
+                      child: new Text(
+                        'Dashboard',
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () =>
                           {Navigator.pushNamed(context, '/widget-lifecycle')},
                       child: new Text(
                         'Widget Lifecycle',

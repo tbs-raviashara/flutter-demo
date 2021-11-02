@@ -1,6 +1,8 @@
 # Flutter Demos
 
 - List view with pull to refresh
+- Dashboard With Grid
+- Create Storage Directory
 - Lite rolling
 - Group list
 - Slidable list
@@ -12,7 +14,7 @@
 - Device information
 - Carousel slider
 - Launch url
-- Google map
+- Google map With Bottom List
 - News App
 - Upload image with crop
 - Awesome dialogs

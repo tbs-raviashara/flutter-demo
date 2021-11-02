@@ -20,18 +20,53 @@ class _FileStructureState extends State<FileStructure> {
           title: Text("File"),
           backgroundColor: Colors.red,
         ),
-        body: Container(
-          padding: EdgeInsets.all(30.0),
-          child: ElevatedButton(
-            onPressed: () async {
-              await callFolderCreationMethod('Flutter Demo');
-            },
-            child: new Text(
-              'Create Folder',
-            ),
-          ),
+        body: Container(padding: EdgeInsets.all(30.0), child: buttonShape()),
+      ),
+    );
+  }
+
+  Widget buttonShape() {
+    return InkWell(
+      onTap: () async {
+        await callFolderCreationMethod('Flutter Demo');
+      },
+      child: Container(
+        width: 180.0,
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(0.0, 20.0),
+                blurRadius: 30.0,
+                color: Colors.black12)
+          ],
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(22.0),
         ),
-      ),  
+        child: Row(
+          children: [
+            Container(
+              width: 140.0,
+              height: 50.0,
+              padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 12.0),
+              child: Center(
+                child: Text(
+                  'Create Folder',
+                  style: TextStyle(fontSize: 16.0, color: Colors.white),
+                ),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.pinkAccent,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(95.0),
+                  topLeft: Radius.circular(95.0),
+                  bottomRight: Radius.circular(200.0),
+                ),
+              ),
+            ),
+            Icon(Icons.folder, size: 30.0, color: Colors.pinkAccent)
+          ],
+        ),
+      ),
     );
   }
 

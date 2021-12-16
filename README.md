@@ -36,6 +36,7 @@
 - Cookie Store App
 - Grid Card Demo
 - Expansion Tile Card List
+- Different List View
 
 ## Install
 

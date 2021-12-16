@@ -356,6 +356,34 @@ class _HomeState extends State<Home> {
                         'UI Profile Design',
                       ),
                     ),
+                    ElevatedButton(
+                      onPressed: () =>
+                          {Navigator.pushNamed(context, '/list-1')},
+                      child: new Text(
+                        'List 1',
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () =>
+                          {Navigator.pushNamed(context, '/list-2')},
+                      child: new Text(
+                        'List 2',
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () =>
+                          {Navigator.pushNamed(context, '/list-3')},
+                      child: new Text(
+                        'List 3',
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () =>
+                          {Navigator.pushNamed(context, '/list-4')},
+                      child: new Text(
+                        'List 4',
+                      ),
+                    ),
                     StatsGrid(),
                   ],
                 ),

@@ -18,6 +18,10 @@ import 'package:demo/groupedlist.dart';
 import 'package:demo/home.dart';
 import 'package:demo/inputfield.dart';
 import 'package:demo/jsonDemo.dart';
+import 'package:demo/list_design.dart';
+import 'package:demo/list_design1.dart';
+import 'package:demo/list_design2.dart';
+import 'package:demo/list_design3.dart';
 import 'package:demo/listview.dart';
 import 'package:demo/listwithselect.dart';
 import 'package:demo/literolling.dart';
@@ -100,6 +104,10 @@ class MyApp extends StatelessWidget {
         '/ui-challenge-1': (context) => UiChallenge1(),
         '/dashboard': (context) => Dashboard(),
         '/file-structure': (context) => FileStructure(),
+        '/list-1': (context) => ListDesign(),
+        '/list-2': (context) => TabWithList(),
+        '/list-3': (context) => ListDesign2(),
+        '/list-4': (context) => ListDesign3(),
       },
     ));
   }

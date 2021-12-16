@@ -65,5 +65,13 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.android.gms:play-services-vision-common:19.1.1'
+    constraints {
+        implementation('com.google.android.gms:play-services-location') {
+            version {
+                strictly "16.0.0"
+            }
+        }
+    }
 }
 apply plugin: 'com.google.gms.google-services'
